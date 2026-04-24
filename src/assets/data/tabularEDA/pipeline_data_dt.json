@@ -1,0 +1,1408 @@
+{
+    "performers": [
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7812315395651073,
+            "train_time": 1.8194983005523682,
+            "infer_time": 0.01135563850402832,
+            "matrix": [
+                23827,
+                3753,
+                4024,
+                3945
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7746772061098766,
+            "train_time": 1.828608512878418,
+            "infer_time": 0.01143336296081543,
+            "matrix": [
+                23323,
+                4257,
+                3753,
+                4216
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.763875214492672,
+            "train_time": 1.7369520664215088,
+            "infer_time": 0.011156558990478516,
+            "matrix": [
+                22557,
+                5023,
+                3371,
+                4598
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.77560550226448,
+            "train_time": 1.7451164722442627,
+            "infer_time": 0.010611772537231445,
+            "matrix": [
+                23102,
+                4478,
+                3499,
+                4470
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7727362232411601,
+            "train_time": 1.719475507736206,
+            "infer_time": 0.011614084243774414,
+            "matrix": [
+                22907,
+                4673,
+                3406,
+                4563
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.764690989901263,
+            "train_time": 1.6780030727386475,
+            "infer_time": 0.0108795166015625,
+            "matrix": [
+                22309,
+                5271,
+                3094,
+                4875
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7592899940926608,
+            "train_time": 1.5945298671722412,
+            "infer_time": 0.01028585433959961,
+            "matrix": [
+                22005,
+                5575,
+                2982,
+                4987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7592899940926608,
+            "train_time": 1.649134635925293,
+            "infer_time": 0.010893583297729492,
+            "matrix": [
+                22005,
+                5575,
+                2982,
+                4987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_None_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=None, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.759936988382233,
+            "train_time": 1.6108317375183105,
+            "infer_time": 0.009926319122314453,
+            "matrix": [
+                21948,
+                5632,
+                2902,
+                5067
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7719204478325691,
+            "train_time": 0.9398691654205322,
+            "infer_time": 0.0058765411376953125,
+            "matrix": [
+                21475,
+                6105,
+                2003,
+                5966
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7718641874595629,
+            "train_time": 0.9426121711730957,
+            "infer_time": 0.005311012268066406,
+            "matrix": [
+                21467,
+                6113,
+                1997,
+                5972
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7717797969000535,
+            "train_time": 0.938462495803833,
+            "infer_time": 0.00570988655090332,
+            "matrix": [
+                21458,
+                6122,
+                1991,
+                5978
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.771695406340544,
+            "train_time": 0.9429116249084473,
+            "infer_time": 0.0053217411041259766,
+            "matrix": [
+                21458,
+                6122,
+                1994,
+                5975
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7716110157810346,
+            "train_time": 0.964097261428833,
+            "infer_time": 0.005260944366455078,
+            "matrix": [
+                21454,
+                6126,
+                1993,
+                5976
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.7718079270865565,
+            "train_time": 0.9552559852600098,
+            "infer_time": 0.00531005859375,
+            "matrix": [
+                21450,
+                6130,
+                1982,
+                5987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7713297139160032,
+            "train_time": 0.9659402370452881,
+            "infer_time": 0.005287885665893555,
+            "matrix": [
+                21436,
+                6144,
+                1985,
+                5984
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7713297139160032,
+            "train_time": 0.994462251663208,
+            "infer_time": 0.005431413650512695,
+            "matrix": [
+                21436,
+                6144,
+                1985,
+                5984
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_10_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=10, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7711328026104813,
+            "train_time": 0.9779078960418701,
+            "infer_time": 0.0053784847259521484,
+            "matrix": [
+                21428,
+                6152,
+                1984,
+                5985
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7783622605417874,
+            "train_time": 1.7296173572540283,
+            "infer_time": 0.01106715202331543,
+            "matrix": [
+                23228,
+                4352,
+                3527,
+                4442
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7730456552926946,
+            "train_time": 1.6848978996276855,
+            "infer_time": 0.010152816772460938,
+            "matrix": [
+                22869,
+                4711,
+                3357,
+                4612
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7639596050521815,
+            "train_time": 1.6412577629089355,
+            "infer_time": 0.01009988784790039,
+            "matrix": [
+                22303,
+                5277,
+                3114,
+                4855
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7711046724239782,
+            "train_time": 1.6455986499786377,
+            "infer_time": 0.010277986526489258,
+            "matrix": [
+                22696,
+                4884,
+                3253,
+                4716
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7678134406031112,
+            "train_time": 1.641815185546875,
+            "infer_time": 0.01068258285522461,
+            "matrix": [
+                22521,
+                5059,
+                3195,
+                4774
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.7620748825564714,
+            "train_time": 1.6557905673980713,
+            "infer_time": 0.009547948837280273,
+            "matrix": [
+                22088,
+                5492,
+                2966,
+                5003
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.759740077076711,
+            "train_time": 1.5824580192565918,
+            "infer_time": 0.009969234466552734,
+            "matrix": [
+                21912,
+                5668,
+                2873,
+                5096
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.759740077076711,
+            "train_time": 1.6033403873443604,
+            "infer_time": 0.010120153427124023,
+            "matrix": [
+                21912,
+                5668,
+                2873,
+                5096
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_20_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=20, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7559425018987876,
+            "train_time": 1.6118459701538086,
+            "infer_time": 0.009593486785888672,
+            "matrix": [
+                21734,
+                5846,
+                2830,
+                5139
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7798812906129567,
+            "train_time": 1.807201862335205,
+            "infer_time": 0.012533426284790039,
+            "matrix": [
+                23786,
+                3794,
+                4031,
+                3938
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7739739514472981,
+            "train_time": 1.8464305400848389,
+            "infer_time": 0.011612653732299805,
+            "matrix": [
+                23299,
+                4281,
+                3754,
+                4215
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7641846465442066,
+            "train_time": 1.7680461406707764,
+            "infer_time": 0.010786771774291992,
+            "matrix": [
+                22560,
+                5020,
+                3363,
+                4606
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7738333005147824,
+            "train_time": 1.727935552597046,
+            "infer_time": 0.010683536529541016,
+            "matrix": [
+                23040,
+                4540,
+                3500,
+                4469
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7719204478325691,
+            "train_time": 1.700136423110962,
+            "infer_time": 0.010859966278076172,
+            "matrix": [
+                22872,
+                4708,
+                3400,
+                4569
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.7642971672902191,
+            "train_time": 1.6810050010681152,
+            "infer_time": 0.010307073593139648,
+            "matrix": [
+                22295,
+                5285,
+                3094,
+                4875
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.759936988382233,
+            "train_time": 1.603116512298584,
+            "infer_time": 0.01019144058227539,
+            "matrix": [
+                22034,
+                5546,
+                2988,
+                4981
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.759936988382233,
+            "train_time": 1.620035171508789,
+            "infer_time": 0.010066747665405273,
+            "matrix": [
+                22034,
+                5546,
+                2988,
+                4981
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_30_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=30, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7586429998030887,
+            "train_time": 1.5869743824005127,
+            "infer_time": 0.010171175003051758,
+            "matrix": [
+                21894,
+                5686,
+                2894,
+                5075
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7812315395651073,
+            "train_time": 1.8017888069152832,
+            "infer_time": 0.012197256088256836,
+            "matrix": [
+                23827,
+                3753,
+                4024,
+                3945
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7746772061098766,
+            "train_time": 1.8256311416625977,
+            "infer_time": 0.011221647262573242,
+            "matrix": [
+                23323,
+                4257,
+                3753,
+                4216
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.763875214492672,
+            "train_time": 1.7499022483825684,
+            "infer_time": 0.010883569717407227,
+            "matrix": [
+                22557,
+                5023,
+                3371,
+                4598
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.77560550226448,
+            "train_time": 1.7530105113983154,
+            "infer_time": 0.01201939582824707,
+            "matrix": [
+                23102,
+                4478,
+                3499,
+                4470
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7727362232411601,
+            "train_time": 1.7995765209197998,
+            "infer_time": 0.01211857795715332,
+            "matrix": [
+                22907,
+                4673,
+                3406,
+                4563
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.764690989901263,
+            "train_time": 1.7224295139312744,
+            "infer_time": 0.010354757308959961,
+            "matrix": [
+                22309,
+                5271,
+                3094,
+                4875
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7592899940926608,
+            "train_time": 1.6462669372558594,
+            "infer_time": 0.010105609893798828,
+            "matrix": [
+                22005,
+                5575,
+                2982,
+                4987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7592899940926608,
+            "train_time": 1.6161003112792969,
+            "infer_time": 0.010601520538330078,
+            "matrix": [
+                22005,
+                5575,
+                2982,
+                4987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_40_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=40, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.759936988382233,
+            "train_time": 1.6122231483459473,
+            "infer_time": 0.01112675666809082,
+            "matrix": [
+                21948,
+                5632,
+                2902,
+                5067
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7812315395651073,
+            "train_time": 1.8190267086029053,
+            "infer_time": 0.011747121810913086,
+            "matrix": [
+                23827,
+                3753,
+                4024,
+                3945
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7746772061098766,
+            "train_time": 1.8271090984344482,
+            "infer_time": 0.011549711227416992,
+            "matrix": [
+                23323,
+                4257,
+                3753,
+                4216
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.763875214492672,
+            "train_time": 1.7572104930877686,
+            "infer_time": 0.011199235916137695,
+            "matrix": [
+                22557,
+                5023,
+                3371,
+                4598
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.77560550226448,
+            "train_time": 1.7650585174560547,
+            "infer_time": 0.011516809463500977,
+            "matrix": [
+                23102,
+                4478,
+                3499,
+                4470
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7727362232411601,
+            "train_time": 1.72786283493042,
+            "infer_time": 0.01065516471862793,
+            "matrix": [
+                22907,
+                4673,
+                3406,
+                4563
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.764690989901263,
+            "train_time": 1.670020580291748,
+            "infer_time": 0.010323524475097656,
+            "matrix": [
+                22309,
+                5271,
+                3094,
+                4875
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7592899940926608,
+            "train_time": 1.6202385425567627,
+            "infer_time": 0.011395931243896484,
+            "matrix": [
+                22005,
+                5575,
+                2982,
+                4987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7592899940926608,
+            "train_time": 1.6603384017944336,
+            "infer_time": 0.01023554801940918,
+            "matrix": [
+                22005,
+                5575,
+                2982,
+                4987
+            ]
+        },
+        {
+            "id": "criterion_gini_max_depth_50_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=gini, max_depth=50, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.759936988382233,
+            "train_time": 1.637843370437622,
+            "infer_time": 0.011800527572631836,
+            "matrix": [
+                21948,
+                5632,
+                2902,
+                5067
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7853104166080621,
+            "train_time": 1.9035170078277588,
+            "infer_time": 0.012334585189819336,
+            "matrix": [
+                23820,
+                3760,
+                3872,
+                4097
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7799938113589693,
+            "train_time": 1.8676276206970215,
+            "infer_time": 0.010788440704345703,
+            "matrix": [
+                23426,
+                4154,
+                3667,
+                4302
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7680384820951363,
+            "train_time": 1.8260669708251953,
+            "infer_time": 0.010304689407348633,
+            "matrix": [
+                22728,
+                4852,
+                3394,
+                4575
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7770120115896368,
+            "train_time": 1.8846416473388672,
+            "infer_time": 0.011323213577270508,
+            "matrix": [
+                23258,
+                4322,
+                3605,
+                4364
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7764775380460772,
+            "train_time": 1.839038372039795,
+            "infer_time": 0.010673761367797852,
+            "matrix": [
+                23164,
+                4416,
+                3530,
+                4439
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.768404174519677,
+            "train_time": 1.7837777137756348,
+            "infer_time": 0.010348320007324219,
+            "matrix": [
+                22651,
+                4929,
+                3304,
+                4665
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7628906579650623,
+            "train_time": 1.7452795505523682,
+            "infer_time": 0.010779142379760742,
+            "matrix": [
+                22305,
+                5275,
+                3154,
+                4815
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7628906579650623,
+            "train_time": 1.8272228240966797,
+            "infer_time": 0.01092982292175293,
+            "matrix": [
+                22305,
+                5275,
+                3154,
+                4815
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_None_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=None, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7626937466595404,
+            "train_time": 1.797609806060791,
+            "infer_time": 0.011069536209106445,
+            "matrix": [
+                22225,
+                5355,
+                3081,
+                4888
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7739176910742919,
+            "train_time": 1.0311992168426514,
+            "infer_time": 0.005513429641723633,
+            "matrix": [
+                21571,
+                6009,
+                2028,
+                5941
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7738333005147824,
+            "train_time": 1.0046391487121582,
+            "infer_time": 0.005570173263549805,
+            "matrix": [
+                21564,
+                6016,
+                2024,
+                5945
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7739739514472981,
+            "train_time": 1.0406451225280762,
+            "infer_time": 0.005455970764160156,
+            "matrix": [
+                21569,
+                6011,
+                2024,
+                5945
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7739739514472981,
+            "train_time": 1.012911319732666,
+            "infer_time": 0.005412578582763672,
+            "matrix": [
+                21565,
+                6015,
+                2020,
+                5949
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7738895608877887,
+            "train_time": 1.0023655891418457,
+            "infer_time": 0.0053844451904296875,
+            "matrix": [
+                21563,
+                6017,
+                2021,
+                5948
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.7743115136853357,
+            "train_time": 0.9876830577850342,
+            "infer_time": 0.005661964416503906,
+            "matrix": [
+                21569,
+                6011,
+                2012,
+                5957
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7738333005147824,
+            "train_time": 0.9848229885101318,
+            "infer_time": 0.005400180816650391,
+            "matrix": [
+                21540,
+                6040,
+                2000,
+                5969
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7738333005147824,
+            "train_time": 0.9827020168304443,
+            "infer_time": 0.0053882598876953125,
+            "matrix": [
+                21540,
+                6040,
+                2000,
+                5969
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_10_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=10, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7738333005147824,
+            "train_time": 0.9918036460876465,
+            "infer_time": 0.005396604537963867,
+            "matrix": [
+                21541,
+                6039,
+                2001,
+                5968
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7739458212607949,
+            "train_time": 1.7900826930999756,
+            "infer_time": 0.010103464126586914,
+            "matrix": [
+                22997,
+                4583,
+                3453,
+                4516
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7723705308166193,
+            "train_time": 1.765728235244751,
+            "infer_time": 0.010381698608398438,
+            "matrix": [
+                22801,
+                4779,
+                3313,
+                4656
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7631438296435905,
+            "train_time": 1.7321557998657227,
+            "infer_time": 0.009355783462524414,
+            "matrix": [
+                22296,
+                5284,
+                3136,
+                4833
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.769838814031337,
+            "train_time": 1.7252905368804932,
+            "infer_time": 0.010324478149414062,
+            "matrix": [
+                22669,
+                4911,
+                3271,
+                4698
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7676446594840923,
+            "train_time": 1.7198545932769775,
+            "infer_time": 0.010105371475219727,
+            "matrix": [
+                22534,
+                5046,
+                3214,
+                4755
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.7631156994570873,
+            "train_time": 1.7078759670257568,
+            "infer_time": 0.00978994369506836,
+            "matrix": [
+                22212,
+                5368,
+                3053,
+                4916
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7559425018987876,
+            "train_time": 1.7046997547149658,
+            "infer_time": 0.010024309158325195,
+            "matrix": [
+                21869,
+                5711,
+                2965,
+                5004
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7559425018987876,
+            "train_time": 1.6593475341796875,
+            "infer_time": 0.009852886199951172,
+            "matrix": [
+                21869,
+                5711,
+                2965,
+                5004
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_20_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=20, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7570677093589131,
+            "train_time": 1.6485872268676758,
+            "infer_time": 0.009270191192626953,
+            "matrix": [
+                21859,
+                5721,
+                2915,
+                5054
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7846071619454837,
+            "train_time": 1.8498477935791016,
+            "infer_time": 0.011101722717285156,
+            "matrix": [
+                23803,
+                3777,
+                3880,
+                4089
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7798531604264536,
+            "train_time": 1.8443019390106201,
+            "infer_time": 0.010782480239868164,
+            "matrix": [
+                23414,
+                4166,
+                3660,
+                4309
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7678978311626206,
+            "train_time": 1.8161189556121826,
+            "infer_time": 0.01300191879272461,
+            "matrix": [
+                22719,
+                4861,
+                3390,
+                4579
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7773777040141776,
+            "train_time": 1.8605997562408447,
+            "infer_time": 0.011282205581665039,
+            "matrix": [
+                23263,
+                4317,
+                3597,
+                4372
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7765619286055867,
+            "train_time": 1.826160192489624,
+            "infer_time": 0.01050710678100586,
+            "matrix": [
+                23152,
+                4428,
+                3515,
+                4454
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.7678697009761175,
+            "train_time": 1.7748034000396729,
+            "infer_time": 0.010607242584228516,
+            "matrix": [
+                22598,
+                4982,
+                3270,
+                4699
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7646347295282567,
+            "train_time": 1.7239344120025635,
+            "infer_time": 0.010614871978759766,
+            "matrix": [
+                22349,
+                5231,
+                3136,
+                4833
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7646347295282567,
+            "train_time": 1.7387375831604004,
+            "infer_time": 0.010614395141601562,
+            "matrix": [
+                22349,
+                5231,
+                3136,
+                4833
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_30_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=30, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7635939126276408,
+            "train_time": 1.7269411087036133,
+            "infer_time": 0.009957075119018555,
+            "matrix": [
+                22256,
+                5324,
+                3080,
+                4889
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7856479788460997,
+            "train_time": 1.8605971336364746,
+            "infer_time": 0.011130332946777344,
+            "matrix": [
+                23834,
+                3746,
+                3874,
+                4095
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7808658471405665,
+            "train_time": 1.8563697338104248,
+            "infer_time": 0.010678529739379883,
+            "matrix": [
+                23446,
+                4134,
+                3656,
+                4313
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7680947424681426,
+            "train_time": 1.8145782947540283,
+            "infer_time": 0.010401725769042969,
+            "matrix": [
+                22724,
+                4856,
+                3388,
+                4581
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7763368871135615,
+            "train_time": 1.8269026279449463,
+            "infer_time": 0.012369394302368164,
+            "matrix": [
+                23231,
+                4349,
+                3602,
+                4367
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7768151002841149,
+            "train_time": 1.8163564205169678,
+            "infer_time": 0.010628461837768555,
+            "matrix": [
+                23166,
+                4414,
+                3520,
+                4449
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.768404174519677,
+            "train_time": 1.7913501262664795,
+            "infer_time": 0.01018834114074707,
+            "matrix": [
+                22651,
+                4929,
+                3304,
+                4665
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7628906579650623,
+            "train_time": 1.7033920288085938,
+            "infer_time": 0.01056051254272461,
+            "matrix": [
+                22305,
+                5275,
+                3154,
+                4815
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7628906579650623,
+            "train_time": 1.7139825820922852,
+            "infer_time": 0.010213851928710938,
+            "matrix": [
+                22305,
+                5275,
+                3154,
+                4815
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_40_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=40, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7626937466595404,
+            "train_time": 1.7027499675750732,
+            "infer_time": 0.009906530380249023,
+            "matrix": [
+                22225,
+                5355,
+                3081,
+                4888
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_1_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=1, min_samples_split=2, splitter=best",
+            "accuracy": 0.7853104166080621,
+            "train_time": 1.854703426361084,
+            "infer_time": 0.011017560958862305,
+            "matrix": [
+                23820,
+                3760,
+                3872,
+                4097
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_1_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=1, min_samples_split=5, splitter=best",
+            "accuracy": 0.7799938113589693,
+            "train_time": 1.8736860752105713,
+            "infer_time": 0.010359525680541992,
+            "matrix": [
+                23426,
+                4154,
+                3667,
+                4302
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_1_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=1, min_samples_split=10, splitter=best",
+            "accuracy": 0.7680384820951363,
+            "train_time": 1.8111796379089355,
+            "infer_time": 0.010183095932006836,
+            "matrix": [
+                22728,
+                4852,
+                3394,
+                4575
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_2_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=2, min_samples_split=2, splitter=best",
+            "accuracy": 0.7770120115896368,
+            "train_time": 1.8382046222686768,
+            "infer_time": 0.011395454406738281,
+            "matrix": [
+                23258,
+                4322,
+                3605,
+                4364
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_2_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=2, min_samples_split=5, splitter=best",
+            "accuracy": 0.7764775380460772,
+            "train_time": 1.8066980838775635,
+            "infer_time": 0.01081991195678711,
+            "matrix": [
+                23164,
+                4416,
+                3530,
+                4439
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_2_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=2, min_samples_split=10, splitter=best",
+            "accuracy": 0.768404174519677,
+            "train_time": 1.7781951427459717,
+            "infer_time": 0.010154008865356445,
+            "matrix": [
+                22651,
+                4929,
+                3304,
+                4665
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_4_min_samples_split_2_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=4, min_samples_split=2, splitter=best",
+            "accuracy": 0.7628906579650623,
+            "train_time": 1.7004432678222656,
+            "infer_time": 0.010035037994384766,
+            "matrix": [
+                22305,
+                5275,
+                3154,
+                4815
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_4_min_samples_split_5_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=4, min_samples_split=5, splitter=best",
+            "accuracy": 0.7628906579650623,
+            "train_time": 1.750288724899292,
+            "infer_time": 0.012109518051147461,
+            "matrix": [
+                22305,
+                5275,
+                3154,
+                4815
+            ]
+        },
+        {
+            "id": "criterion_entropy_max_depth_50_min_samples_leaf_4_min_samples_split_10_splitter_best",
+            "config": "criterion=entropy, max_depth=50, min_samples_leaf=4, min_samples_split=10, splitter=best",
+            "accuracy": 0.7626937466595404,
+            "train_time": 1.7058067321777344,
+            "infer_time": 0.009949445724487305,
+            "matrix": [
+                22225,
+                5355,
+                3081,
+                4888
+            ]
+        }
+    ]
+}

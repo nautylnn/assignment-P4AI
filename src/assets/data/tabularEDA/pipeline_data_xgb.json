@@ -1,0 +1,706 @@
+{
+    "performers": [
+        {
+            "id": "learning_rate_0_01_max_depth_3_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=3, n_estimators=100, subsample=0.8",
+            "accuracy": 0.7824692677712454,
+            "train_time": 0.5547995567321777,
+            "infer_time": 0.023261070251464844,
+            "matrix": [
+                22075,
+                5505,
+                2228,
+                5741
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_3_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=3, n_estimators=100, subsample=1.0",
+            "accuracy": 0.7818504036681764,
+            "train_time": 0.5219540596008301,
+            "infer_time": 0.023415088653564453,
+            "matrix": [
+                22015,
+                5565,
+                2190,
+                5779
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_3_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=3, n_estimators=200, subsample=0.8",
+            "accuracy": 0.7878140032068413,
+            "train_time": 0.9694528579711914,
+            "infer_time": 0.04180192947387695,
+            "matrix": [
+                22092,
+                5488,
+                2055,
+                5914
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_3_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=3, n_estimators=200, subsample=1.0",
+            "accuracy": 0.7870826183577597,
+            "train_time": 0.9045357704162598,
+            "infer_time": 0.04275369644165039,
+            "matrix": [
+                22069,
+                5511,
+                2058,
+                5911
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_3_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=3, n_estimators=300, subsample=0.8",
+            "accuracy": 0.7859292807111311,
+            "train_time": 1.4148945808410645,
+            "infer_time": 0.06180691719055176,
+            "matrix": [
+                21947,
+                5633,
+                1977,
+                5992
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_3_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=3, n_estimators=300, subsample=1.0",
+            "accuracy": 0.7855635882865903,
+            "train_time": 1.267740249633789,
+            "infer_time": 0.06168723106384277,
+            "matrix": [
+                21929,
+                5651,
+                1972,
+                5997
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_5_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=5, n_estimators=100, subsample=0.8",
+            "accuracy": 0.789614335143042,
+            "train_time": 0.7475302219390869,
+            "infer_time": 0.03359627723693848,
+            "matrix": [
+                22131,
+                5449,
+                2030,
+                5939
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_5_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=5, n_estimators=100, subsample=1.0",
+            "accuracy": 0.7897268558890546,
+            "train_time": 0.7195944786071777,
+            "infer_time": 0.03330659866333008,
+            "matrix": [
+                22128,
+                5452,
+                2023,
+                5946
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_5_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=5, n_estimators=200, subsample=0.8",
+            "accuracy": 0.7910489746547019,
+            "train_time": 1.3881068229675293,
+            "infer_time": 0.06427335739135742,
+            "matrix": [
+                22068,
+                5512,
+                1916,
+                6053
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_5_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=5, n_estimators=200, subsample=1.0",
+            "accuracy": 0.7900644181270922,
+            "train_time": 1.4341089725494385,
+            "infer_time": 0.0657951831817627,
+            "matrix": [
+                22047,
+                5533,
+                1930,
+                6039
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_5_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=5, n_estimators=300, subsample=0.8",
+            "accuracy": 0.7918084896902866,
+            "train_time": 1.9725615978240967,
+            "infer_time": 0.09377336502075195,
+            "matrix": [
+                22038,
+                5542,
+                1859,
+                6110
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_5_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=5, n_estimators=300, subsample=1.0",
+            "accuracy": 0.7918647500632929,
+            "train_time": 1.9446711540222168,
+            "infer_time": 0.09558796882629395,
+            "matrix": [
+                22042,
+                5538,
+                1861,
+                6108
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_7_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=7, n_estimators=100, subsample=0.8",
+            "accuracy": 0.797856479788461,
+            "train_time": 1.1157402992248535,
+            "infer_time": 0.0454554557800293,
+            "matrix": [
+                22304,
+                5276,
+                1910,
+                6059
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_7_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=7, n_estimators=100, subsample=1.0",
+            "accuracy": 0.7959717572927508,
+            "train_time": 1.0848615169525146,
+            "infer_time": 0.04446864128112793,
+            "matrix": [
+                22256,
+                5324,
+                1929,
+                6040
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_7_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=7, n_estimators=200, subsample=0.8",
+            "accuracy": 0.8008945399307997,
+            "train_time": 2.0648882389068604,
+            "infer_time": 0.0845804214477539,
+            "matrix": [
+                22346,
+                5234,
+                1844,
+                6125
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_7_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=7, n_estimators=200, subsample=1.0",
+            "accuracy": 0.7987285155700582,
+            "train_time": 2.1365139484405518,
+            "infer_time": 0.08384943008422852,
+            "matrix": [
+                22285,
+                5295,
+                1860,
+                6109
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_7_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.01, max_depth=7, n_estimators=300, subsample=0.8",
+            "accuracy": 0.803004303918535,
+            "train_time": 3.0224099159240723,
+            "infer_time": 0.12657380104064941,
+            "matrix": [
+                22378,
+                5202,
+                1801,
+                6168
+            ]
+        },
+        {
+            "id": "learning_rate_0_01_max_depth_7_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.01, max_depth=7, n_estimators=300, subsample=1.0",
+            "accuracy": 0.8011758417958311,
+            "train_time": 3.0369434356689453,
+            "infer_time": 0.1273491382598877,
+            "matrix": [
+                22326,
+                5254,
+                1814,
+                6155
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_3_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=3, n_estimators=100, subsample=0.8",
+            "accuracy": 0.7865200146276969,
+            "train_time": 0.5729260444641113,
+            "infer_time": 0.022661685943603516,
+            "matrix": [
+                21854,
+                5726,
+                1863,
+                6106
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_3_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=3, n_estimators=100, subsample=1.0",
+            "accuracy": 0.7870263579847534,
+            "train_time": 0.4994077682495117,
+            "infer_time": 0.022696495056152344,
+            "matrix": [
+                21880,
+                5700,
+                1871,
+                6098
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_3_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=3, n_estimators=200, subsample=0.8",
+            "accuracy": 0.7929336971504121,
+            "train_time": 0.9741029739379883,
+            "infer_time": 0.04443812370300293,
+            "matrix": [
+                21993,
+                5587,
+                1774,
+                6195
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_3_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=3, n_estimators=200, subsample=1.0",
+            "accuracy": 0.792708655658387,
+            "train_time": 0.937159538269043,
+            "infer_time": 0.043309926986694336,
+            "matrix": [
+                22008,
+                5572,
+                1797,
+                6172
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_3_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=3, n_estimators=300, subsample=0.8",
+            "accuracy": 0.7964499704633041,
+            "train_time": 1.3931491374969482,
+            "infer_time": 0.06261038780212402,
+            "matrix": [
+                22102,
+                5478,
+                1758,
+                6211
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_3_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=3, n_estimators=300, subsample=1.0",
+            "accuracy": 0.7961967987847759,
+            "train_time": 1.1756174564361572,
+            "infer_time": 0.06280636787414551,
+            "matrix": [
+                22106,
+                5474,
+                1771,
+                6198
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_5_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=5, n_estimators=100, subsample=0.8",
+            "accuracy": 0.7969000534473544,
+            "train_time": 0.735849142074585,
+            "infer_time": 0.03331351280212402,
+            "matrix": [
+                22133,
+                5447,
+                1773,
+                6196
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_5_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=5, n_estimators=100, subsample=1.0",
+            "accuracy": 0.7973501364314045,
+            "train_time": 0.6710386276245117,
+            "infer_time": 0.032929182052612305,
+            "matrix": [
+                22164,
+                5416,
+                1788,
+                6181
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_5_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=5, n_estimators=200, subsample=0.8",
+            "accuracy": 0.8037356887676165,
+            "train_time": 1.3109045028686523,
+            "infer_time": 0.06560730934143066,
+            "matrix": [
+                22331,
+                5249,
+                1728,
+                6241
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_5_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=5, n_estimators=200, subsample=1.0",
+            "accuracy": 0.8026948718670005,
+            "train_time": 1.172497034072876,
+            "infer_time": 0.06454610824584961,
+            "matrix": [
+                22316,
+                5264,
+                1750,
+                6219
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_5_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=5, n_estimators=300, subsample=0.8",
+            "accuracy": 0.8081802582351121,
+            "train_time": 1.8166627883911133,
+            "infer_time": 0.09733867645263672,
+            "matrix": [
+                22475,
+                5105,
+                1714,
+                6255
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_5_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=5, n_estimators=300, subsample=1.0",
+            "accuracy": 0.8059579735013643,
+            "train_time": 1.7708885669708252,
+            "infer_time": 0.09868741035461426,
+            "matrix": [
+                22429,
+                5151,
+                1747,
+                6222
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_7_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=7, n_estimators=100, subsample=0.8",
+            "accuracy": 0.8070831809614898,
+            "train_time": 1.0458364486694336,
+            "infer_time": 0.044530391693115234,
+            "matrix": [
+                22462,
+                5118,
+                1740,
+                6229
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_7_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=7, n_estimators=100, subsample=1.0",
+            "accuracy": 0.806717488536949,
+            "train_time": 1.0271682739257812,
+            "infer_time": 0.04664349555969238,
+            "matrix": [
+                22477,
+                5103,
+                1768,
+                6201
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_7_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=7, n_estimators=200, subsample=0.8",
+            "accuracy": 0.813946946468255,
+            "train_time": 1.9174137115478516,
+            "infer_time": 0.08876299858093262,
+            "matrix": [
+                22685,
+                4895,
+                1719,
+                6250
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_7_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=7, n_estimators=200, subsample=1.0",
+            "accuracy": 0.8121747447185574,
+            "train_time": 1.7386269569396973,
+            "infer_time": 0.0872948169708252,
+            "matrix": [
+                22652,
+                4928,
+                1749,
+                6220
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_7_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.05, max_depth=7, n_estimators=300, subsample=0.8",
+            "accuracy": 0.8190385102253228,
+            "train_time": 2.831960916519165,
+            "infer_time": 0.13479280471801758,
+            "matrix": [
+                22919,
+                4661,
+                1772,
+                6197
+            ]
+        },
+        {
+            "id": "learning_rate_0_05_max_depth_7_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.05, max_depth=7, n_estimators=300, subsample=1.0",
+            "accuracy": 0.8154659765394244,
+            "train_time": 2.4668729305267334,
+            "infer_time": 0.1256706714630127,
+            "matrix": [
+                22798,
+                4782,
+                1778,
+                6191
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_3_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=3, n_estimators=100, subsample=0.8",
+            "accuracy": 0.7938057329320093,
+            "train_time": 0.533679723739624,
+            "infer_time": 0.023642778396606445,
+            "matrix": [
+                22030,
+                5550,
+                1780,
+                6189
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_3_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=3, n_estimators=100, subsample=1.0",
+            "accuracy": 0.7917522293172804,
+            "train_time": 0.48448681831359863,
+            "infer_time": 0.022718429565429688,
+            "matrix": [
+                21975,
+                5605,
+                1798,
+                6171
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_3_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=3, n_estimators=200, subsample=0.8",
+            "accuracy": 0.7994036400461335,
+            "train_time": 0.9690804481506348,
+            "infer_time": 0.043969154357910156,
+            "matrix": [
+                22187,
+                5393,
+                1738,
+                6231
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_3_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=3, n_estimators=200, subsample=1.0",
+            "accuracy": 0.7982784325860081,
+            "train_time": 0.8979592323303223,
+            "infer_time": 0.043794870376586914,
+            "matrix": [
+                22153,
+                5427,
+                1744,
+                6225
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_3_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=3, n_estimators=300, subsample=0.8",
+            "accuracy": 0.8026386114939942,
+            "train_time": 1.3635036945343018,
+            "infer_time": 0.06327176094055176,
+            "matrix": [
+                22292,
+                5288,
+                1728,
+                6241
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_3_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=3, n_estimators=300, subsample=1.0",
+            "accuracy": 0.8025542209344848,
+            "train_time": 1.1965656280517578,
+            "infer_time": 0.06353425979614258,
+            "matrix": [
+                22288,
+                5292,
+                1727,
+                6242
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_5_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=5, n_estimators=100, subsample=0.8",
+            "accuracy": 0.8033418661565727,
+            "train_time": 0.7444429397583008,
+            "infer_time": 0.035227298736572266,
+            "matrix": [
+                22319,
+                5261,
+                1730,
+                6239
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_5_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=5, n_estimators=100, subsample=1.0",
+            "accuracy": 0.802385439815466,
+            "train_time": 0.8378255367279053,
+            "infer_time": 0.03618025779724121,
+            "matrix": [
+                22315,
+                5265,
+                1760,
+                6209
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_5_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=5, n_estimators=200, subsample=0.8",
+            "accuracy": 0.8084052997271371,
+            "train_time": 1.3071331977844238,
+            "infer_time": 0.06595635414123535,
+            "matrix": [
+                22487,
+                5093,
+                1718,
+                6251
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_5_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=5, n_estimators=200, subsample=1.0",
+            "accuracy": 0.8083209091676278,
+            "train_time": 1.1187479496002197,
+            "infer_time": 0.06476855278015137,
+            "matrix": [
+                22499,
+                5081,
+                1733,
+                6236
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_5_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=5, n_estimators=300, subsample=0.8",
+            "accuracy": 0.8123997862105826,
+            "train_time": 1.832364797592163,
+            "infer_time": 0.09656548500061035,
+            "matrix": [
+                22644,
+                4936,
+                1733,
+                6236
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_5_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=5, n_estimators=300, subsample=1.0",
+            "accuracy": 0.8112745787504572,
+            "train_time": 1.6022486686706543,
+            "infer_time": 0.09538459777832031,
+            "matrix": [
+                22622,
+                4958,
+                1751,
+                6218
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_7_n_estimators_100_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=7, n_estimators=100, subsample=0.8",
+            "accuracy": 0.8129623899406453,
+            "train_time": 0.99117112159729,
+            "infer_time": 0.04476428031921387,
+            "matrix": [
+                22692,
+                4888,
+                1761,
+                6208
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_7_n_estimators_100_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=7, n_estimators=100, subsample=1.0",
+            "accuracy": 0.8109370165124195,
+            "train_time": 0.9951326847076416,
+            "infer_time": 0.04435110092163086,
+            "matrix": [
+                22631,
+                4949,
+                1772,
+                6197
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_7_n_estimators_200_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=7, n_estimators=200, subsample=0.8",
+            "accuracy": 0.819685504514895,
+            "train_time": 1.9925966262817383,
+            "infer_time": 0.09008646011352539,
+            "matrix": [
+                23019,
+                4561,
+                1849,
+                6120
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_7_n_estimators_200_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=7, n_estimators=200, subsample=1.0",
+            "accuracy": 0.8172663084756252,
+            "train_time": 1.6412851810455322,
+            "infer_time": 0.08481574058532715,
+            "matrix": [
+                22928,
+                4652,
+                1844,
+                6125
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_7_n_estimators_300_subsample_0_8",
+            "config": "learning_rate=0.1, max_depth=7, n_estimators=300, subsample=0.8",
+            "accuracy": 0.8248333286449689,
+            "train_time": 2.5651962757110596,
+            "infer_time": 0.12465143203735352,
+            "matrix": [
+                23298,
+                4282,
+                1945,
+                6024
+            ]
+        },
+        {
+            "id": "learning_rate_0_1_max_depth_7_n_estimators_300_subsample_1_0",
+            "config": "learning_rate=0.1, max_depth=7, n_estimators=300, subsample=1.0",
+            "accuracy": 0.8221328307406678,
+            "train_time": 2.2967171669006348,
+            "infer_time": 0.12398433685302734,
+            "matrix": [
+                23192,
+                4388,
+                1935,
+                6034
+            ]
+        }
+    ]
+}

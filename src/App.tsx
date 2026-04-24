@@ -6,12 +6,13 @@ import DatasetsPage from './components/DatasetsPage';
 import AssignmentDetails from './components/AssignmentDetails';
 import ArtAnalysis from './components/ArtAnalysis';
 import TabularEDA from './components/TabularEDA';
+import TabularPipeline from './components/TabularPipeline';
 import TextEDA from './components/TextEDA';
 import ImageEDA from './components/ImageEDA';
 import MultimodalEDA from './components/MultimodalEDA';
 
 
-type Page = 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-eda' | 'text-eda' | 'image-eda' | 'multimodal-eda';
+type Page = 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-eda' | 'tabular-pipeline' | 'text-eda' | 'image-eda' | 'multimodal-eda';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('overview');
@@ -51,6 +52,7 @@ export default function App() {
       case 'assignments': return <AssignmentDetails />;
       case 'art-analysis': return <ArtAnalysis onBack={() => navigate('overview')} title={selectedDataset} />;
       case 'tabular-eda': return <TabularEDA onBack={() => navigate('overview')} />;
+      case 'tabular-pipeline': return <TabularPipeline onBack={() => navigate('overview')} />;
       case 'text-eda': return <TextEDA onBack={() => navigate('overview')} />;
       case 'image-eda': return <ImageEDA onBack={() => navigate('overview')} />;
       case 'multimodal-eda': return <MultimodalEDA onBack={() => navigate('overview')} />;

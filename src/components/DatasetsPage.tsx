@@ -6,7 +6,7 @@ import imageHero from "../assets/images/image/padang_food.png";
 import multimodalHero from "../assets/images/image/artemis_multimodal.png";
 
 interface DatasetsPageProps {
-  onNavigate?: (page: 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-eda' | 'text-eda' | 'image-eda' | 'multimodal-eda', dataset?: string) => void;
+  onNavigate?: (page: 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-eda' | 'tabular-pipeline' | 'text-eda' | 'image-eda' | 'multimodal-eda', dataset?: string) => void;
 }
 
 export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
@@ -84,6 +84,24 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
               >
                 <BarChart3 size={14} />
                 Analysis
+              </button>
+            </div>
+            <div className="flex gap-3 mt-4">
+              <a 
+                href="https://colab.research.google.com/drive/143sQz3NqiTBltcTjpuzkPa0QnDxy1I3j?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2.5 bg-surface-container text-on-surface text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all no-underline cursor-pointer"
+              >
+                <ExternalLink size={14} />
+                Colab
+              </a>
+              <button
+                onClick={() => onNavigate?.('tabular-pipeline')}
+                className="flex-1 py-2.5 academic-gradient text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+              >
+                <BarChart3 size={14} />
+                ML
               </button>
             </div>
 

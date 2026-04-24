@@ -1634,34 +1634,34 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
                                                         <tr>
                                                             <th className="px-8 py-4 font-bold w-24">Rank</th>
                                                             <th className="px-8 py-4 font-bold">Model Configuration</th>
-                                                            <th className="px-8 py-4 font-bold text-right w-48">CV F1-Score</th>
+                                                            <th className="px-8 py-4 font-bold text-right w-48">F1-Score</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody className="divide-y divide-outline-variant/5">
                                                         <tr className="hover:bg-surface-container-low/50 transition-colors">
                                                             <td className="px-8 py-4 font-black text-secondary text-lg">#1</td>
                                                             <td className="px-8 py-4 font-mono text-xs">XGB (lr=0.1, depth=7, est=300, sub=0.8)</td>
-                                                            <td className="px-8 py-4 font-black text-right text-lg">65.93%</td>
+                                                            <td className="px-8 py-4 font-black text-right text-lg">0.659</td>
                                                         </tr>
                                                         <tr className="hover:bg-surface-container-low/50 transition-colors">
                                                             <td className="px-8 py-4 font-bold text-on-surface-variant">#2</td>
                                                             <td className="px-8 py-4 font-mono text-xs text-on-surface-variant/90">XGB (lr=0.05, depth=7, est=300, sub=0.8)</td>
-                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">65.83%</td>
+                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">0.658</td>
                                                         </tr>
                                                         <tr className="hover:bg-surface-container-low/50 transition-colors">
                                                             <td className="px-8 py-4 font-bold text-on-surface-variant">#3</td>
                                                             <td className="px-8 py-4 font-mono text-xs text-on-surface-variant/90">XGB (lr=0.1, depth=7, est=200, sub=0.8)</td>
-                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">65.63%</td>
+                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">0.656</td>
                                                         </tr>
                                                         <tr className="hover:bg-surface-container-low/50 transition-colors">
                                                             <td className="px-8 py-4 font-bold text-on-surface-variant">#8</td>
                                                             <td className="px-8 py-4 font-mono text-xs text-on-surface-variant/90">RF (depth=20, leaf=4, split=10, est=300)</td>
-                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">65.32%</td>
+                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">0.653</td>
                                                         </tr>
                                                         <tr className="hover:bg-surface-container-low/50 transition-colors">
                                                             <td className="px-8 py-4 font-bold text-on-surface-variant">#156</td>
                                                             <td className="px-8 py-4 font-mono text-xs text-on-surface-variant/90">DT (entropy, depth=10, split=10, leaf=2)</td>
-                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">59.76%</td>
+                                                            <td className="px-8 py-4 font-bold text-right text-on-surface-variant/90">0.598</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -1680,7 +1680,7 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
                                                         <tr>
                                                             <th className="px-8 py-4 font-bold w-24">Rank</th>
                                                             <th className="px-8 py-4 font-bold">Model Configuration</th>
-                                                            <th className="px-8 py-4 font-bold text-right w-48">CV Accuracy</th>
+                                                            <th className="px-8 py-4 font-bold text-right w-48">Accuracy</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody className="divide-y divide-outline-variant/5">

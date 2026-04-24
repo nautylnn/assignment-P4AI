@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
-import { Table, FileText, ImageIcon, ExternalLink, Download, CloudDownload, Eraser, Share2, ShieldCheck, ArrowRight, Info, History, Layers, BarChart3 } from "lucide-react";
+import { Table, FileText, ImageIcon, ExternalLink, Download, CloudDownload, Eraser, Share2, ShieldCheck, ArrowRight, Info, History, Layers, BarChart3, Brain } from "lucide-react";
 import tabularHero from "../assets/images/image/ảnh.jpg";
 import textHero from "../assets/images/image/text.jpg";
 import imageHero from "../assets/images/image/padang_food.png";
 import multimodalHero from "../assets/images/image/artemis_multimodal.png";
 
 interface DatasetsPageProps {
-  onNavigate?: (page: 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-eda' | 'tabular-pipeline' | 'text-eda' | 'image-eda' | 'multimodal-eda', dataset?: string) => void;
+  onNavigate?: (page: 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-eda' | 'tabular-pipeline' | 'text-eda' | 'image-eda' | 'multimodal-eda', dataset?: string, mode?: "eda" | "ml") => void;
 }
 
 export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
@@ -78,14 +78,23 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
                 <ExternalLink size={14} />
                 Kaggle
               </a>
+            <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => onNavigate?.('tabular-eda')}
-                className="flex-1 py-2.5 academic-gradient text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+                onClick={() => onNavigate?.('tabular-eda', '', 'eda')}
+                className="py-2.5 bg-surface-container-high text-on-surface text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:bg-primary/10 transition-all cursor-pointer"
               >
-                <BarChart3 size={14} />
-                Analysis
+                <BarChart3 size={12} />
+                EDA
+              </button>
+              <button
+                onClick={() => onNavigate?.('tabular-eda', '', 'ml')}
+                className="py-2.5 academic-gradient text-white text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+              >
+                <Brain size={12} />
+                ML
               </button>
             </div>
+          </div>
             <div className="flex gap-3 mt-4">
               <a 
                 href="https://colab.research.google.com/drive/143sQz3NqiTBltcTjpuzkPa0QnDxy1I3j?usp=sharing"
@@ -153,14 +162,23 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
                 <ExternalLink size={14} />
                 Kaggle
               </a>
+            <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => onNavigate?.('text-eda')}
-                className="flex-1 py-2.5 academic-gradient text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+                onClick={() => onNavigate?.('text-eda', '', 'eda')}
+                className="py-2.5 bg-surface-container-high text-on-surface text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:bg-primary/10 transition-all cursor-pointer"
               >
-                <BarChart3 size={14} />
-                Analysis
+                <BarChart3 size={12} />
+                EDA
+              </button>
+              <button
+                onClick={() => onNavigate?.('text-eda', '', 'ml')}
+                className="py-2.5 academic-gradient text-white text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+              >
+                <Brain size={12} />
+                ML
               </button>
             </div>
+          </div>
 
           </motion.div>
 
@@ -210,14 +228,23 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
                 <ExternalLink size={14} />
                 Kaggle
               </a>
+            <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => onNavigate?.('image-eda')}
-                className="flex-1 py-2.5 academic-gradient text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+                onClick={() => onNavigate?.('image-eda', '', 'eda')}
+                className="py-2.5 bg-surface-container-high text-on-surface text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:bg-primary/10 transition-all cursor-pointer"
               >
-                <BarChart3 size={14} />
-                Analysis
+                <BarChart3 size={12} />
+                EDA
+              </button>
+              <button
+                onClick={() => onNavigate?.('image-eda', '', 'ml')}
+                className="py-2.5 academic-gradient text-white text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+              >
+                <Brain size={12} />
+                ML
               </button>
             </div>
+          </div>
 
           </motion.div>
 
@@ -267,14 +294,23 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
                 <ExternalLink size={14} />
                 Kaggle
               </a>
+            <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => onNavigate?.('multimodal-eda', 'Artemis')}
-                className="flex-1 py-2.5 academic-gradient text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+                onClick={() => onNavigate?.('multimodal-eda', 'Artemis', 'eda')}
+                className="py-2.5 bg-surface-container-high text-on-surface text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:bg-primary/10 transition-all cursor-pointer"
               >
-                <BarChart3 size={14} />
-                Analysis
+                <BarChart3 size={12} />
+                EDA
+              </button>
+              <button
+                onClick={() => onNavigate?.('multimodal-eda', 'Artemis', 'ml')}
+                className="py-2.5 academic-gradient text-white text-[10px] font-black uppercase tracking-widest rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
+              >
+                <Brain size={12} />
+                ML
               </button>
             </div>
+          </div>
 
           </motion.div>
         </div>

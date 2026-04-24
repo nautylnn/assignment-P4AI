@@ -45,6 +45,7 @@ import {
     BadgeCheck,
     Users
 } from "lucide-react";
+import TextML from "./TextML";
 
 // --- Modern Academic UI Components (Same as TabularEDA) ---
 
@@ -251,8 +252,9 @@ const InteractiveAnalysis = ({ id, title, subtitle, icon: Icon, pythonCode, plot
     );
 };
 
-export default function TextEDA({ onBack }: { onBack: () => void }) {
+export default function TextEDA({ onBack, initialMode = "eda" }: { onBack: () => void, initialMode?: "eda" | "ml" }) {
     const [activeNav, setActiveNav] = useState("overview");
+    const [activeMode, setActiveMode] = useState<"eda" | "ml">(initialMode);
     const [selectedCategory, setSelectedCategory] = useState("overall");
     const [bigramTopic, setBigramTopic] = useState("economy");
     const [globalUnit, setGlobalUnit] = useState<"unigrams" | "bigrams">("unigrams");
@@ -448,6 +450,28 @@ export default function TextEDA({ onBack }: { onBack: () => void }) {
                 </aside>
 
                 <div className="flex-1 min-w-0">
+                    {/* Mode Switcher Tabs */}
+                    <div className="flex bg-surface-container-high p-1 rounded-2xl w-fit mx-auto mb-12 shadow-inner border border-outline-variant/10">
+                        <button
+                            onClick={() => setActiveMode("eda")}
+                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all cursor-pointer border-none ${activeMode === "eda" ? "bg-white text-primary shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <BarChart3 size={14} />
+                                EDA Analysis
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setActiveMode("ml")}
+                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all cursor-pointer border-none ${activeMode === "ml" ? "bg-white text-primary shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <Brain size={14} />
+                                Machine Learning
+                            </div>
+                        </button>
+                    </div>
+
                     {/* Hero Section */}
                     <section className="relative py-28 overflow-hidden bg-white border border-outline-variant/5 rounded-[3rem] shadow-sm mb-12" id="overview">
                         <div className="max-w-[1240px] mx-auto px-10">
@@ -542,8 +566,11 @@ export default function TextEDA({ onBack }: { onBack: () => void }) {
                         </div>
                     </section>
 
+
                     <div className="max-w-[1240px] mx-auto pb-40">
-                        {/* Dataset Ethics Notice */}
+                        {activeMode === "eda" ? (
+                            <>
+                                {/* Dataset Ethics Notice */}
                         <div className="bg-surface-container-low/30 p-8 rounded-[2.5rem] border border-outline-variant/10 mb-12 flex flex-col md:flex-row gap-8 items-center md:items-start group transition-all hover:bg-white hover:shadow-xl hover:shadow-on-surface/5">
                             <div className="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
                                 <AlertTriangle size={24} />
@@ -1968,6 +1995,10 @@ print(samples[['topic_category', 'short_text']])`}
                                 </div>
                             </div>
                         </InteractiveAnalysis>
+                        </>
+                        ) : (
+                            <TextML />
+                        )}
                     </div>
                 </div>
             </main>

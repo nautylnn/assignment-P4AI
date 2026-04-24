@@ -50,6 +50,7 @@ import _outlier_detection from "../assets/data/tabularEDA/outlier_detection.json
 import _target_vs from "../assets/data/tabularEDA/target_vs.json";
 import _weather_data from "../assets/data/tabularEDA/weather_data.json";
 import _timeseries from "../assets/data/tabularEDA/timeseries.json";
+import TabularML from "./TabularML";
 
 const missing_values = _missing_values as any;
 const numerical_distribution = _numerical_distribution as any;
@@ -262,8 +263,9 @@ const InteractiveAnalysis = ({ id, title, subtitle, icon: Icon, pythonCode, plot
     );
 };
 
-export default function TabularEDA({ onBack }: { onBack: () => void }) {
+export default function TabularEDA({ onBack, initialMode = "eda" }: { onBack: () => void, initialMode?: "eda" | "ml" }) {
     const [activeNav, setActiveNav] = useState("overview");
+    const [activeMode, setActiveMode] = useState<"eda" | "ml">(initialMode);
     const [yesRows, setYesRows] = useState([]);
     const [noRows, setNoRows] = useState([]);
     const [isRolling, setIsRolling] = useState(false);
@@ -415,6 +417,28 @@ export default function TabularEDA({ onBack }: { onBack: () => void }) {
                 </aside>
 
                 <div className="flex-1 min-w-0">
+                    {/* Mode Switcher Tabs */}
+                    <div className="flex bg-surface-container-high p-1 rounded-2xl w-fit mx-auto mb-12 shadow-inner border border-outline-variant/10">
+                        <button
+                            onClick={() => setActiveMode("eda")}
+                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all cursor-pointer border-none ${activeMode === "eda" ? "bg-white text-primary shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <BarChart3 size={14} />
+                                EDA Analysis
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setActiveMode("ml")}
+                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all cursor-pointer border-none ${activeMode === "ml" ? "bg-white text-primary shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <Brain size={14} />
+                                Machine Learning
+                            </div>
+                        </button>
+                    </div>
+
                     {/* Academic Hero Section */}
                     <section className="relative py-28 overflow-hidden bg-white border border-outline-variant/5 rounded-[3rem] shadow-sm mb-12" id="overview">
                         <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-bl from-primary/[0.03] to-transparent -z-10" />
@@ -513,10 +537,12 @@ export default function TabularEDA({ onBack }: { onBack: () => void }) {
                             </div>
                         </div>
                     </section>
+                    
 
-                    <div className="max-w-[1240px] mx-auto">
-
-                        {/* Dataset Profile & Ethics */}
+                    {activeMode === "eda" ? (
+                        <>
+                            <div className="max-w-[1240px] mx-auto">
+                                {/* Dataset Profile & Ethics */}
                         <section className="py-20 mb-8">
                             <div className="flex flex-col md:flex-row gap-16">
                                 <div className="flex-1">
@@ -1086,6 +1112,10 @@ export default function TabularEDA({ onBack }: { onBack: () => void }) {
                         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/[0.03] rounded-full blur-[100px]" />
                     </section>
 
+                        </>
+                    ) : (
+                        <TabularML />
+                    )}
                 </div>
             </main>
         </div>

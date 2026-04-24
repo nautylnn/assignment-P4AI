@@ -17,14 +17,16 @@ type Page = 'overview' | 'assignments' | 'datasets' | 'art-analysis' | 'tabular-
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('overview');
   const [selectedDataset, setSelectedDataset] = useState<string>('');
+  const [currentMode, setCurrentMode] = useState<"eda" | "ml">("eda");
 
   // Fixed Navigation Logic with History API Support
-  const navigate = (page: Page, dataset?: string) => {
+  const navigate = (page: Page, dataset?: string, mode: "eda" | "ml" = "eda") => {
     setCurrentPage(page);
+    setCurrentMode(mode);
     if (dataset) setSelectedDataset(dataset);
     
     // Update browser history so "Back" works as expected
-    window.history.pushState({ page, dataset }, "", "");
+    window.history.pushState({ page, dataset, mode }, "", "");
   };
 
   useEffect(() => {
@@ -33,8 +35,10 @@ export default function App() {
       if (event.state && event.state.page) {
         setCurrentPage(event.state.page);
         if (event.state.dataset) setSelectedDataset(event.state.dataset);
+        if (event.state.mode) setCurrentMode(event.state.mode);
       } else {
         setCurrentPage('overview');
+        setCurrentMode('eda');
       }
     };
 
@@ -51,11 +55,11 @@ export default function App() {
       case 'datasets': return <DatasetsPage onNavigate={navigate} />;
       case 'assignments': return <AssignmentDetails />;
       case 'art-analysis': return <ArtAnalysis onBack={() => navigate('overview')} title={selectedDataset} />;
-      case 'tabular-eda': return <TabularEDA onBack={() => navigate('overview')} />;
+      case 'tabular-eda': return <TabularEDA onBack={() => navigate('overview')} initialMode={currentMode} />;
       case 'tabular-pipeline': return <TabularPipeline onBack={() => navigate('overview')} />;
-      case 'text-eda': return <TextEDA onBack={() => navigate('overview')} />;
-      case 'image-eda': return <ImageEDA onBack={() => navigate('overview')} />;
-      case 'multimodal-eda': return <MultimodalEDA onBack={() => navigate('overview')} />;
+      case 'text-eda': return <TextEDA onBack={() => navigate('overview')} initialMode={currentMode} />;
+      case 'image-eda': return <ImageEDA onBack={() => navigate('overview')} initialMode={currentMode} />;
+      case 'multimodal-eda': return <MultimodalEDA onBack={() => navigate('overview')} initialMode={currentMode} />;
 
       default: return <LandingPage onNavigate={navigate} />;
     }

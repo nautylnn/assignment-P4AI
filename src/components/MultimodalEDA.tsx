@@ -45,6 +45,8 @@ import topEmotionProportionsByStyle from "../assets/data/multimodalEDA/top_emoti
 import topWordsByEmotion from "../assets/data/multimodalEDA/top_words_by_emotion.json";
 import textLengthDist from "../assets/data/multimodalEDA/text_length_distribution.json";
 import imageUtterances from "../assets/data/multimodalEDA/image_utterances.json";
+import MultimodalML from "./MultimodalML";
+import { Brain, BarChart3 } from "lucide-react";
 
 // Import Sample Images Dynamically
 const sampleFiles = import.meta.glob("../assets/data/multimodalEDA/sample/*.{jpg,png}", { eager: true });
@@ -215,8 +217,9 @@ const InteractiveAnalysis = ({ id, title, subtitle, icon: Icon, pythonCode, obse
     );
 };
 
-export default function MultimodalEDA({ onBack }: { onBack: () => void }) {
+export default function MultimodalEDA({ onBack, initialMode = "eda" }: { onBack: () => void, initialMode?: "eda" | "ml" }) {
     const [activeNav, setActiveNav] = useState("overview");
+    const [activeMode, setActiveMode] = useState<"eda" | "ml">(initialMode);
     const [selectedMetric, setSelectedMetric] = useState("width");
     const [selectedEmotionWord, setSelectedEmotionWord] = useState("amusement");
     const [displaySamples, setDisplaySamples] = useState<any[]>([]);
@@ -345,6 +348,30 @@ export default function MultimodalEDA({ onBack }: { onBack: () => void }) {
                 </aside>
 
                 <div className="flex-1 min-w-0">
+                    {/* Mode Switcher Tabs */}
+                    <div className="flex bg-surface-container-high p-1 rounded-2xl w-fit mx-auto mb-12 shadow-inner border border-outline-variant/10">
+                        <button
+                            onClick={() => setActiveMode("eda")}
+                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all cursor-pointer border-none ${activeMode === "eda" ? "bg-white text-primary shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <BarChart3 size={14} />
+                                EDA Analysis
+                            </div>
+                        </button>
+                        <button
+                            onClick={() => setActiveMode("ml")}
+                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all cursor-pointer border-none ${activeMode === "ml" ? "bg-white text-primary shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
+                        >
+                            <div className="flex items-center gap-2">
+                                <Brain size={14} />
+                                Machine Learning
+                            </div>
+                        </button>
+                    </div>
+
+                    {activeMode === "eda" ? (
+                        <>
                     {/* Hero Section */}
                     <section className="relative py-28 overflow-hidden bg-white border border-outline-variant/5 rounded-[3rem] shadow-sm mb-12" id="overview">
                         <div className="max-w-[1240px] mx-auto px-10">
@@ -439,151 +466,152 @@ export default function MultimodalEDA({ onBack }: { onBack: () => void }) {
                         </div>
                     </section>
 
+
                     <div className="max-w-[1240px] mx-auto pb-40 px-4 lg:px-0">
-                        {/* 3. Dataset Overview */}
-                        <InteractiveAnalysis
-                            id="metadata-overview"
-                            title="Dataset Overview"
-                            subtitle="Technical schema, shape, and field distributions."
-                            icon={Database}
-                            pythonCode={`# Dataset dimensions
+                                {/* 3. Dataset Overview */}
+                                <InteractiveAnalysis
+                                    id="metadata-overview"
+                                    title="Dataset Overview"
+                                    subtitle="Technical schema, shape, and field distributions."
+                                    icon={Database}
+                                    pythonCode={`# Dataset dimensions
 print(f"Dataset shape: {df.shape}")
 
 # Column information
 print("\\nColumns:", df.columns.tolist())
 df.info()`}
-                        >
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                <div className="bg-white rounded-3xl p-8 border border-outline-variant/10 shadow-sm">
-                                    <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-6">Technical Dimensions</h4>
-                                    <div className="space-y-6">
-                                        <div className="flex justify-between items-end border-b border-outline-variant/5 pb-4">
-                                            <span className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tight">Total Observations</span>
-                                            <span className="text-2xl font-black text-on-surface">49,056</span>
-                                        </div>
-                                        <div className="flex justify-between items-end border-b border-outline-variant/5 pb-4">
-                                            <span className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tight">Available Features</span>
-                                            <span className="text-2xl font-black text-on-surface">8</span>
-                                        </div>
-                                        <div className="flex justify-between items-end">
-                                            <span className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tight">Memory Footprint</span>
-                                            <span className="text-2xl font-black text-on-surface">3.0+ MB</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="bg-slate-950 rounded-3xl p-8 border border-white/5 font-mono text-[11px] overflow-hidden">
-                                    <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 mb-6 font-sans">Data Schema Analysis</h4>
-                                    <div className="space-y-3 custom-scrollbar overflow-x-auto">
-                                        {[
-                                            { id: 0, name: "emotion", type: "object", count: "49,056" },
-                                            { id: 1, name: "utterance", type: "object", count: "49,056" },
-                                            { id: 2, name: "art_style", type: "object", count: "49,056" },
-                                            { id: 3, name: "painting", type: "object", count: "49,056" },
-                                            { id: 4, name: "anchor_art_style", type: "object", count: "49,056" },
-                                            { id: 5, name: "anchor_painting", type: "object", count: "49,056" },
-                                            { id: 6, name: "repetition", type: "int64", count: "49,056" },
-                                            { id: 7, name: "filename", type: "object", count: "49,056" },
-                                        ].map((col) => (
-                                            <div key={col.id} className="grid grid-cols-4 gap-4 py-1 border-b border-white/5 text-slate-400">
-                                                <span className="text-white/20">#{col.id}</span>
-                                                <span className="text-primary/80 font-bold">{col.name}</span>
-                                                <span className="text-slate-500 italic">{col.type}</span>
-                                                <span className="text-slate-500 text-right">{col.count}</span>
+                                >
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                        <div className="bg-white rounded-3xl p-8 border border-outline-variant/10 shadow-sm">
+                                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-6">Technical Dimensions</h4>
+                                            <div className="space-y-6">
+                                                <div className="flex justify-between items-end border-b border-outline-variant/5 pb-4">
+                                                    <span className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tight">Total Observations</span>
+                                                    <span className="text-2xl font-black text-on-surface">49,056</span>
+                                                </div>
+                                                <div className="flex justify-between items-end border-b border-outline-variant/5 pb-4">
+                                                    <span className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tight">Available Features</span>
+                                                    <span className="text-2xl font-black text-on-surface">8</span>
+                                                </div>
+                                                <div className="flex justify-between items-end">
+                                                    <span className="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tight">Memory Footprint</span>
+                                                    <span className="text-2xl font-black text-on-surface">3.0+ MB</span>
+                                                </div>
                                             </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </InteractiveAnalysis>
-                        
+                                        </div>
 
-                        {/* Sample Artwork Visualization */}
-                        <InteractiveAnalysis
-                            id="sample-gallery"
-                            title="Sample Visualization"
-                            subtitle="Representing paintings integrated with their human affective annotations."
-                            icon={ImageIcon}
-                            observation="This unified view confirms the tight coupling between visual semantics and human emotion. Instead of raw descriptions, utterances explain 'HOW' visual features (colors, brushstrokes, composition) trigger specific feelings."
-                            pythonCode={`# Data Coupling Logic
+                                        <div className="bg-slate-950 rounded-3xl p-8 border border-white/5 font-mono text-[11px] overflow-hidden">
+                                            <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-white/40 mb-6 font-sans">Data Schema Analysis</h4>
+                                            <div className="space-y-3 custom-scrollbar overflow-x-auto">
+                                                {[
+                                                    { id: 0, name: "emotion", type: "object", count: "49,056" },
+                                                    { id: 1, name: "utterance", type: "object", count: "49,056" },
+                                                    { id: 2, name: "art_style", type: "object", count: "49,056" },
+                                                    { id: 3, name: "painting", type: "object", count: "49,056" },
+                                                    { id: 4, name: "anchor_art_style", type: "object", count: "49,056" },
+                                                    { id: 5, name: "anchor_painting", type: "object", count: "49,056" },
+                                                    { id: 6, name: "repetition", type: "int64", count: "49,056" },
+                                                    { id: 7, name: "filename", type: "object", count: "49,056" },
+                                                ].map((col) => (
+                                                    <div key={col.id} className="grid grid-cols-4 gap-4 py-1 border-b border-white/5 text-slate-400">
+                                                        <span className="text-white/20">#{col.id}</span>
+                                                        <span className="text-primary/80 font-bold">{col.name}</span>
+                                                        <span className="text-slate-500 italic">{col.type}</span>
+                                                        <span className="text-slate-500 text-right">{col.count}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </InteractiveAnalysis>
+                                
+
+                                {/* Sample Artwork Visualization */}
+                                <InteractiveAnalysis
+                                    id="sample-gallery"
+                                    title="Sample Visualization"
+                                    subtitle="Representing paintings integrated with their human affective annotations."
+                                    icon={ImageIcon}
+                                    observation="This unified view confirms the tight coupling between visual semantics and human emotion. Instead of raw descriptions, utterances explain 'HOW' visual features (colors, brushstrokes, composition) trigger specific feelings."
+                                    pythonCode={`# Data Coupling Logic
 sample = df.sample(1)
 print(f"Artwork: {sample['painting'].iloc[0]}")
 print(f"Label: {sample['emotion'].iloc[0].upper()}")
 print(f"Human Reaction: \\"{sample['utterance'].iloc[0]}\\"")`}
-                        >
-                            <div className="flex flex-col gap-10">
-                                {/* Shuffle Action */}
-                                <div className="flex justify-end">
-                                    <button 
-                                        onClick={shuffleSamples}
-                                        className="flex items-center gap-3 px-6 py-3 bg-surface-container-high hover:bg-primary hover:text-white rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-300 shadow-sm hover:shadow-primary/20 group/btn cursor-pointer"
-                                    >
-                                        <RefreshCw size={14} className="group-hover/btn:rotate-180 transition-transform duration-500 text-primary group-hover:text-white" />
-                                        Randomize Samples
-                                    </button>
-                                </div>
-
-                                <AnimatePresence mode="popLayout">
-                                    <motion.div 
-                                        key={displaySamples.map(d => d.src).join(',')}
-                                        className="grid grid-cols-1 md:grid-cols-2 gap-10"
-                                    >
-                                        {displaySamples.map((art, i) => (
-                                            <motion.div 
-                                                key={art.src}
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.95 }}
-                                                transition={{ duration: 0.4, delay: i * 0.05 }}
-                                                className="group/art flex flex-col h-full bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all overflow-hidden"
+                                >
+                                    <div className="flex flex-col gap-10">
+                                        {/* Shuffle Action */}
+                                        <div className="flex justify-end">
+                                            <button 
+                                                onClick={shuffleSamples}
+                                                className="flex items-center gap-3 px-6 py-3 bg-surface-container-high hover:bg-primary hover:text-white rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-300 shadow-sm hover:shadow-primary/20 group/btn cursor-pointer"
                                             >
-                                                <div className="aspect-[4/3] relative overflow-hidden bg-surface-container-low">
-                                                    <img 
-                                                        src={art.src} 
-                                                        alt={art.author}
-                                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover/art:scale-110"
-                                                    />
-                                                    <div className="absolute top-6 left-6">
-                                                        <div className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg backdrop-blur-md border border-white/20
-                                                            ${art.emotion === 'fear' || art.emotion === 'anger' ? 'bg-red-500/90 text-white' : 
-                                                              art.emotion === 'contentment' || art.emotion === 'awe' ? 'bg-emerald-500/90 text-white' :
-                                                              'bg-primary/90 text-white'}
-                                                        `}>
-                                                            {art.emotion}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                <div className="p-8 flex flex-col flex-1 justify-between gap-6 border-t border-outline-variant/5">
-                                                    <div className="space-y-4">
-                                                        <p className="text-on-surface font-medium italic leading-relaxed text-[13px] tracking-tight">
-                                                            "{art.utterance}"
-                                                        </p>
-                                                    </div>
-                                                    
-                                                    <div className="flex items-center justify-between pt-6 border-t border-outline-variant/5 mt-auto">
-                                                        <div className="flex flex-col">
-                                                            <span className="text-[9px] font-black uppercase tracking-[0.15em] text-primary/60 mb-1">Artist Reflection</span>
-                                                            <span className="text-xs font-bold text-on-surface tracking-tight">{art.author}</span>
-                                                        </div>
-                                                        <span className="text-[10px] font-medium text-on-surface-variant opacity-40 italic tracking-tight">{art.year}</span>
-                                                    </div>
-                                                </div>
-                                            </motion.div>
-                                        ))}
-                                    </motion.div>
-                                </AnimatePresence>
-                            </div>
-                        </InteractiveAnalysis>
+                                                <RefreshCw size={14} className="group-hover/btn:rotate-180 transition-transform duration-500 text-primary group-hover:text-white" />
+                                                Randomize Samples
+                                            </button>
+                                        </div>
 
-                        {/* 6. Emotion Distribution */}
-                        <InteractiveAnalysis
-                            id="emotion-dist"
-                            title="Emotion Distribution"
-                            subtitle="Frequency analysis of human-annotated sentiment labels."
-                            icon={Smile}
-                            observation="While the dataset covers 8 fundamental emotions, there is a clear class imbalance. 'Contentment' and 'Sadness' are highly frequent, whereas 'Anger' and 'Disgust' are less represented, matching the typically contemplative nature of fine art."
-                            pythonCode={`emotion_col = "emotion"
+                                        <AnimatePresence mode="popLayout">
+                                            <motion.div 
+                                                key={displaySamples.map(d => d.src).join(',')}
+                                                className="grid grid-cols-1 md:grid-cols-2 gap-10"
+                                            >
+                                                {displaySamples.map((art, i) => (
+                                                    <motion.div 
+                                                        key={art.src}
+                                                        initial={{ opacity: 0, scale: 0.95 }}
+                                                        animate={{ opacity: 1, scale: 1 }}
+                                                        exit={{ opacity: 0, scale: 0.95 }}
+                                                        transition={{ duration: 0.4, delay: i * 0.05 }}
+                                                        className="group/art flex flex-col h-full bg-white rounded-[2.5rem] border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:shadow-primary/5 transition-all overflow-hidden"
+                                                    >
+                                                        <div className="aspect-[4/3] relative overflow-hidden bg-surface-container-low">
+                                                            <img 
+                                                                src={art.src} 
+                                                                alt={art.author}
+                                                                className="w-full h-full object-cover transition-transform duration-1000 group-hover/art:scale-110"
+                                                            />
+                                                            <div className="absolute top-6 left-6">
+                                                                <div className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg backdrop-blur-md border border-white/20
+                                                                    ${art.emotion === 'fear' || art.emotion === 'anger' ? 'bg-red-500/90 text-white' : 
+                                                                    art.emotion === 'contentment' || art.emotion === 'awe' ? 'bg-emerald-500/90 text-white' :
+                                                                    'bg-primary/90 text-white'}
+                                                                `}>
+                                                                    {art.emotion}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div className="p-8 flex flex-col flex-1 justify-between gap-6 border-t border-outline-variant/5">
+                                                            <div className="space-y-4">
+                                                                <p className="text-on-surface font-medium italic leading-relaxed text-[13px] tracking-tight">
+                                                                    "{art.utterance}"
+                                                                </p>
+                                                            </div>
+                                                            
+                                                            <div className="flex items-center justify-between pt-6 border-t border-outline-variant/5 mt-auto">
+                                                                <div className="flex flex-col">
+                                                                    <span className="text-[9px] font-black uppercase tracking-[0.15em] text-primary/60 mb-1">Artist Reflection</span>
+                                                                    <span className="text-xs font-bold text-on-surface tracking-tight">{art.author}</span>
+                                                                </div>
+                                                                <span className="text-[10px] font-medium text-on-surface-variant opacity-40 italic tracking-tight">{art.year}</span>
+                                                            </div>
+                                                        </div>
+                                                    </motion.div>
+                                                ))}
+                                            </motion.div>
+                                        </AnimatePresence>
+                                    </div>
+                                </InteractiveAnalysis>
+
+                                {/* 6. Emotion Distribution */}
+                                <InteractiveAnalysis
+                                    id="emotion-dist"
+                                    title="Emotion Distribution"
+                                    subtitle="Frequency analysis of human-annotated sentiment labels."
+                                    icon={Smile}
+                                    observation="While the dataset covers 8 fundamental emotions, there is a clear class imbalance. 'Contentment' and 'Sadness' are highly frequent, whereas 'Anger' and 'Disgust' are less represented, matching the typically contemplative nature of fine art."
+                                    pythonCode={`emotion_col = "emotion"
 emotion_counts = df[emotion_col].value_counts().reset_index()
 emotion_counts.columns = ["emotion", "count"]
 
@@ -592,31 +620,31 @@ fig = px.bar(emotion_counts, x="emotion", y="count",
              color="count", color_continuous_scale='Viridis')
 fig.update_layout(xaxis_title="Emotion", yaxis_title="Count", template="plotly_white")
 fig.show()`}
-                        >
-                            <div className="w-full bg-white rounded-3xl overflow-hidden">
-                                <Plot
-                                    data={emotionDistribution.data}
-                                    layout={{
-                                        ...emotionDistribution.layout,
-                                        autosize: true,
-                                        bargap: 0.1,
-                                        margin: { t: 60, b: 80, l: 80, r: 40 }
-                                    }}
-                                    style={{ width: "100%", height: "600px" }}
-                                    useResizeHandler={true}
-                                    config={{ responsive: true, displaylogo: false }}
-                                />
-                            </div>
-                        </InteractiveAnalysis>
+                                >
+                                    <div className="w-full bg-white rounded-3xl overflow-hidden">
+                                        <Plot
+                                            data={emotionDistribution.data}
+                                            layout={{
+                                                ...emotionDistribution.layout,
+                                                autosize: true,
+                                                bargap: 0.1,
+                                                margin: { t: 60, b: 80, l: 80, r: 40 }
+                                            }}
+                                            style={{ width: "100%", height: "600px" }}
+                                            useResizeHandler={true}
+                                            config={{ responsive: true, displaylogo: false }}
+                                        />
+                                    </div>
+                                </InteractiveAnalysis>
 
-                        {/* 8. Art Style Distribution */}
-                        <InteractiveAnalysis
-                            id="art-style-dist"
-                            title="Top 15 Art Styles"
-                            subtitle="Analysis of the most frequent artistic movements in the subset."
-                            icon={Palette}
-                            observation="The dataset is dominated by 'Impressionism' and 'Post-Impressionism'. This reflects the source material (WikiArt) and suggests the model might be more exposed to these visual patterns."
-                            pythonCode={`style_counts = df['art_style'].value_counts().head(15).reset_index()
+                                {/* 8. Art Style Distribution */}
+                                <InteractiveAnalysis
+                                    id="art-style-dist"
+                                    title="Top 15 Art Styles"
+                                    subtitle="Analysis of the most frequent artistic movements in the subset."
+                                    icon={Palette}
+                                    observation="The dataset is dominated by 'Impressionism' and 'Post-Impressionism'. This reflects the source material (WikiArt) and suggests the model might be more exposed to these visual patterns."
+                                    pythonCode={`style_counts = df['art_style'].value_counts().head(15).reset_index()
 style_counts.columns = ['art_style', 'count']
 
 fig = px.bar(style_counts, x='art_style', y='count',
@@ -625,31 +653,31 @@ fig = px.bar(style_counts, x='art_style', y='count',
              color_continuous_scale='Magma')
 fig.update_layout(xaxis_tickangle=-45, template='plotly_white')
 fig.show()`}
-                        >
-                            <div className="w-full bg-white rounded-3xl overflow-hidden">
-                                <Plot
-                                    data={top15ArtStyles.data}
-                                    layout={{
-                                        ...top15ArtStyles.layout,
-                                        autosize: true,
-                                        bargap: 0.05,
-                                        margin: { t: 60, b: 120, l: 80, r: 40 }
-                                    }}
-                                    style={{ width: "100%", height: "650px" }}
-                                    useResizeHandler={true}
-                                    config={{ responsive: true, displaylogo: false }}
-                                />
-                            </div>
-                        </InteractiveAnalysis>
+                                >
+                                    <div className="w-full bg-white rounded-3xl overflow-hidden">
+                                        <Plot
+                                            data={top15ArtStyles.data}
+                                            layout={{
+                                                ...top15ArtStyles.layout,
+                                                autosize: true,
+                                                bargap: 0.05,
+                                                margin: { t: 60, b: 120, l: 80, r: 40 }
+                                            }}
+                                            style={{ width: "100%", height: "650px" }}
+                                            useResizeHandler={true}
+                                            config={{ responsive: true, displaylogo: false }}
+                                        />
+                                    </div>
+                                </InteractiveAnalysis>
 
-                        {/* 9. Image Metadata Analysis */}
-                        <InteractiveAnalysis
-                            id="image-metadata"
-                            title="Image Physical Properties"
-                            subtitle="Dimensions, aspect ratios, and resolution clusters."
-                            icon={ImageIcon}
-                            observation="Most images are around 500-1000 pixels. The aspect ratios vary significantly, confirming the diversity of painting formats (portrait, landscape, and square miniatures)."
-                            pythonCode={`import plotly.express as px
+                                {/* 9. Image Metadata Analysis */}
+                                <InteractiveAnalysis
+                                    id="image-metadata"
+                                    title="Image Physical Properties"
+                                    subtitle="Dimensions, aspect ratios, and resolution clusters."
+                                    icon={ImageIcon}
+                                    observation="Most images are around 500-1000 pixels. The aspect ratios vary significantly, confirming the diversity of painting formats (portrait, landscape, and square miniatures)."
+                                    pythonCode={`import plotly.express as px
 
 # Width Distribution
 fig_w = px.histogram(df_img, x="width", nbins=40, title="Distribution of Image Width",
@@ -673,134 +701,134 @@ fig_ar.show()
 fig_s = px.scatter(df_img, x="width", y="height", opacity=0.5, title="Image Width vs. Height",
                   labels={"width": "Width", "height": "Height"})
 fig_s.show()`}
-                        >
-                            <div className="flex flex-col gap-8">
-                                {/* Metric Selector */}
-                                <div className="flex flex-wrap gap-2 bg-surface-container-low p-1.5 rounded-2xl w-fit border border-outline-variant/10">
-                                    {imageMetrics.map((metric) => {
-                                        const isActive = selectedMetric === metric.id;
-                                        return (
-                                            <button
-                                                key={metric.id}
-                                                onClick={() => setSelectedMetric(metric.id)}
-                                                className={`
-                                                    flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-pointer
-                                                    ${isActive 
-                                                        ? 'bg-primary text-on-primary shadow-lg shadow-primary/20 scale-105' 
-                                                        : 'hover:bg-surface-container-high text-on-surface/60 hover:text-on-surface'}
-                                                `}
+                                >
+                                    <div className="flex flex-col gap-8">
+                                        {/* Metric Selector */}
+                                        <div className="flex flex-wrap gap-2 bg-surface-container-low p-1.5 rounded-2xl w-fit border border-outline-variant/10">
+                                            {imageMetrics.map((metric) => {
+                                                const isActive = selectedMetric === metric.id;
+                                                return (
+                                                    <button
+                                                        key={metric.id}
+                                                        onClick={() => setSelectedMetric(metric.id)}
+                                                        className={`
+                                                            flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 cursor-pointer
+                                                            ${isActive 
+                                                                ? 'bg-primary text-on-primary shadow-lg shadow-primary/20 scale-105' 
+                                                                : 'hover:bg-surface-container-high text-on-surface/60 hover:text-on-surface'}
+                                                        `}
+                                                    >
+                                                        <metric.icon size={16} />
+                                                        {metric.label}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Active Chart */}
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={selectedMetric}
+                                                initial={{ opacity: 0, scale: 0.98 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                exit={{ opacity: 0, scale: 0.98 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="bg-white rounded-3xl border border-outline-variant/10 overflow-hidden shadow-sm"
                                             >
-                                                <metric.icon size={16} />
-                                                {metric.label}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
+                                                {selectedMetric === 'width' && (
+                                                    <Plot
+                                                        data={imageWidthDist.data}
+                                                        layout={{
+                                                            ...imageWidthDist.layout,
+                                                            autosize: true,
+                                                            margin: { t: 60, b: 80, l: 80, r: 40 }
+                                                        }}
+                                                        style={{ width: "100%", height: "600px" }}
+                                                        useResizeHandler={true}
+                                                        config={{ responsive: true, displaylogo: false }}
+                                                    />
+                                                )}
+                                                {selectedMetric === 'height' && (
+                                                    <Plot
+                                                        data={imageHeightDist.data}
+                                                        layout={{
+                                                            ...imageHeightDist.layout,
+                                                            autosize: true,
+                                                            margin: { t: 60, b: 80, l: 80, r: 40 }
+                                                        }}
+                                                        style={{ width: "100%", height: "600px" }}
+                                                        useResizeHandler={true}
+                                                        config={{ responsive: true, displaylogo: false }}
+                                                    />
+                                                )}
+                                                {selectedMetric === 'ratio' && (
+                                                    <Plot
+                                                        data={imageAspectRatioDist.data}
+                                                        layout={{
+                                                            ...imageAspectRatioDist.layout,
+                                                            autosize: true,
+                                                            margin: { t: 60, b: 80, l: 80, r: 40 }
+                                                        }}
+                                                        style={{ width: "100%", height: "600px" }}
+                                                        useResizeHandler={true}
+                                                        config={{ responsive: true, displaylogo: false }}
+                                                    />
+                                                )}
+                                                {selectedMetric === 'scatter' && (
+                                                    <Plot
+                                                        data={imageDimensionsScatter.data}
+                                                        layout={{
+                                                            ...imageDimensionsScatter.layout,
+                                                            autosize: true,
+                                                            margin: { t: 60, b: 80, l: 80, r: 40 }
+                                                        }}
+                                                        style={{ width: "100%", height: "650px" }}
+                                                        useResizeHandler={true}
+                                                        config={{ responsive: true, displaylogo: false }}
+                                                    />
+                                                )}
+                                            </motion.div>
+                                        </AnimatePresence>
+                                    </div>
+                                </InteractiveAnalysis>
 
-                                {/* Active Chart */}
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={selectedMetric}
-                                        initial={{ opacity: 0, scale: 0.98 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.98 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="bg-white rounded-3xl border border-outline-variant/10 overflow-hidden shadow-sm"
-                                    >
-                                        {selectedMetric === 'width' && (
-                                            <Plot
-                                                data={imageWidthDist.data}
-                                                layout={{
-                                                    ...imageWidthDist.layout,
-                                                    autosize: true,
-                                                    margin: { t: 60, b: 80, l: 80, r: 40 }
-                                                }}
-                                                style={{ width: "100%", height: "600px" }}
-                                                useResizeHandler={true}
-                                                config={{ responsive: true, displaylogo: false }}
-                                            />
-                                        )}
-                                        {selectedMetric === 'height' && (
-                                            <Plot
-                                                data={imageHeightDist.data}
-                                                layout={{
-                                                    ...imageHeightDist.layout,
-                                                    autosize: true,
-                                                    margin: { t: 60, b: 80, l: 80, r: 40 }
-                                                }}
-                                                style={{ width: "100%", height: "600px" }}
-                                                useResizeHandler={true}
-                                                config={{ responsive: true, displaylogo: false }}
-                                            />
-                                        )}
-                                        {selectedMetric === 'ratio' && (
-                                            <Plot
-                                                data={imageAspectRatioDist.data}
-                                                layout={{
-                                                    ...imageAspectRatioDist.layout,
-                                                    autosize: true,
-                                                    margin: { t: 60, b: 80, l: 80, r: 40 }
-                                                }}
-                                                style={{ width: "100%", height: "600px" }}
-                                                useResizeHandler={true}
-                                                config={{ responsive: true, displaylogo: false }}
-                                            />
-                                        )}
-                                        {selectedMetric === 'scatter' && (
-                                            <Plot
-                                                data={imageDimensionsScatter.data}
-                                                layout={{
-                                                    ...imageDimensionsScatter.layout,
-                                                    autosize: true,
-                                                    margin: { t: 60, b: 80, l: 80, r: 40 }
-                                                }}
-                                                style={{ width: "100%", height: "650px" }}
-                                                useResizeHandler={true}
-                                                config={{ responsive: true, displaylogo: false }}
-                                            />
-                                        )}
-                                    </motion.div>
-                                </AnimatePresence>
-                            </div>
-                        </InteractiveAnalysis>
-
-                        {/* 7. Text Length Distribution */}
-                        <InteractiveAnalysis
-                            id="text-length"
-                            title="Descriptive Text Density"
-                            subtitle="Word count distribution across the human utterances."
-                            icon={Type}
-                            observation="The majority of human utterances range from 10 to 25 words. This provides enough linguistic complexity for multimodal alignment without being overly verbose."
-                            pythonCode={`df['text_length'] = df['utterance'].str.split().str.len()
+                                {/* 7. Text Length Distribution */}
+                                <InteractiveAnalysis
+                                    id="text-length"
+                                    title="Descriptive Text Density"
+                                    subtitle="Word count distribution across the human utterances."
+                                    icon={Type}
+                                    observation="The majority of human utterances range from 10 to 25 words. This provides enough linguistic complexity for multimodal alignment without being overly verbose."
+                                    pythonCode={`df['text_length'] = df['utterance'].str.split().str.len()
 fig = px.histogram(df, x='text_length', nbins=100, 
                    title='Text Length Distribution (Words)',
                    color_discrete_sequence=['#ff7f0e'])
 fig.update_layout(xaxis_title="Word Count", yaxis_title="Number of Sentences", template="plotly_white")
 fig.show()`}
-                        >
-                            <div className="w-full bg-white rounded-3xl overflow-hidden">
-                                <Plot
-                                    data={textLengthDist.data}
-                                    layout={{
-                                        ...textLengthDist.layout,
-                                        autosize: true,
-                                        margin: { t: 60, b: 80, l: 80, r: 40 }
-                                    }}
-                                    style={{ width: "100%", height: "600px" }}
-                                    useResizeHandler={true}
-                                    config={{ responsive: true, displaylogo: false }}
-                                />
-                            </div>
-                        </InteractiveAnalysis>
+                                >
+                                    <div className="w-full bg-white rounded-3xl overflow-hidden">
+                                        <Plot
+                                            data={textLengthDist.data}
+                                            layout={{
+                                                ...textLengthDist.layout,
+                                                autosize: true,
+                                                margin: { t: 60, b: 80, l: 80, r: 40 }
+                                            }}
+                                            style={{ width: "100%", height: "600px" }}
+                                            useResizeHandler={true}
+                                            config={{ responsive: true, displaylogo: false }}
+                                        />
+                                    </div>
+                                </InteractiveAnalysis>
 
-                        {/* 10. Style-Emotion Heatmap */}
-                        <InteractiveAnalysis
-                            id="style-emotion"
-                            title="Style vs Emotion Relationship"
-                            subtitle="Normalized heatmap showing emotion distributions per art movement."
-                            icon={Layers}
-                            observation="Specific styles often correlate with certain emotions; for instance, 'Impressionism' frequently evokes positive sentiments like 'Contentment' or 'Awe', while 'Expressionism' links more to intense emotions."
-                            pythonCode={`heatmap_data = df.groupby(['art_style', 'emotion']).size().unstack(fill_value=0)
+                                {/* 10. Style-Emotion Heatmap */}
+                                <InteractiveAnalysis
+                                    id="style-emotion"
+                                    title="Style vs Emotion Relationship"
+                                    subtitle="Normalized heatmap showing emotion distributions per art movement."
+                                    icon={Layers}
+                                    observation="Specific styles often correlate with certain emotions; for instance, 'Impressionism' frequently evokes positive sentiments like 'Contentment' or 'Awe', while 'Expressionism' links more to intense emotions."
+                                    pythonCode={`heatmap_data = df.groupby(['art_style', 'emotion']).size().unstack(fill_value=0)
 heatmap_norm = heatmap_data.div(heatmap_data.sum(axis=1), axis=0) # Normalize by row
 
 fig = px.imshow(heatmap_norm, 
@@ -809,30 +837,30 @@ fig = px.imshow(heatmap_norm,
                 title='Heatmap: Emotion Distribution per Art Style')
 fig.update_layout(height=800, template='plotly_white')
 fig.show()`}
-                        >
-                            <div className="w-full bg-white rounded-3xl overflow-hidden">
-                                <Plot
-                                    data={styleEmotionHeatmap.data}
-                                    layout={{
-                                        ...styleEmotionHeatmap.layout,
-                                        autosize: true,
-                                        margin: { t: 80, b: 120, l: 150, r: 40 }
-                                    }}
-                                    style={{ width: "100%", height: "800px" }}
-                                    useResizeHandler={true}
-                                    config={{ responsive: true, displaylogo: false }}
-                                />
-                            </div>
-                        </InteractiveAnalysis>
+                                >
+                                    <div className="w-full bg-white rounded-3xl overflow-hidden">
+                                        <Plot
+                                            data={styleEmotionHeatmap.data}
+                                            layout={{
+                                                ...styleEmotionHeatmap.layout,
+                                                autosize: true,
+                                                margin: { t: 80, b: 120, l: 150, r: 40 }
+                                            }}
+                                            style={{ width: "100%", height: "800px" }}
+                                            useResizeHandler={true}
+                                            config={{ responsive: true, displaylogo: false }}
+                                        />
+                                    </div>
+                                </InteractiveAnalysis>
 
-                        {/* 15.1 Top Emotions within Art Styles (Grouped Bar Chart) */}
-                        <InteractiveAnalysis
-                            id="style-emotion-bar"
-                            title="Top Emotions within Art Styles"
-                            subtitle="Faceted bar chart showing the proportion of the top 5 emotions within the 10 most frequent art styles."
-                            icon={Columns}
-                            observation="This granular view reveals that even within 'Impressionism', 'Sadness' can be a dominant annotation, alongside the expected 'Contentment'. Faceted analysis allows us to compare emotional signatures across distinct artistic movements directly."
-                            pythonCode={`# Select top 10 art styles based on total annotations for better readability in visualization
+                                {/* 15.1 Top Emotions within Art Styles (Grouped Bar Chart) */}
+                                <InteractiveAnalysis
+                                    id="style-emotion-bar"
+                                    title="Top Emotions within Art Styles"
+                                    subtitle="Faceted bar chart showing the proportion of the top 5 emotions within the 10 most frequent art styles."
+                                    icon={Columns}
+                                    observation="This granular view reveals that even within 'Impressionism', 'Sadness' can be a dominant annotation, alongside the expected 'Contentment'. Faceted analysis allows us to compare emotional signatures across distinct artistic movements directly."
+                                    pythonCode={`# Select top 10 art styles based on total annotations for better readability in visualization
 # \`style_insights\` DataFrame from cell 833ed3d2 contains 'total_annotations' for each style.
 top_n_styles_for_viz = style_insights.sort_values('total_annotations', ascending=False).head(10)['art_style'].tolist()
 
@@ -871,31 +899,31 @@ fig = px.bar(
 fig.update_layout(showlegend=False) # Legend is redundant with color-coding within facets
 fig.update_xaxes(matches=None, tickangle=45) # Allow independent x-axes for better readability of emotion labels
 fig.show()`}
-                        >
-                            <div className="w-full bg-white rounded-3xl overflow-hidden">
-                                <Plot
-                                    data={topEmotionProportionsByStyle.data}
-                                    layout={{
-                                        ...topEmotionProportionsByStyle.layout,
-                                        autosize: true,
-                                        margin: { t: 80, b: 100, l: 80, r: 40 },
-                                        template: "plotly_white"
-                                    }}
-                                    style={{ width: "100%", height: "800px" }}
-                                    useResizeHandler={true}
-                                    config={{ responsive: true, displaylogo: false }}
-                                />
-                            </div>
-                        </InteractiveAnalysis>
+                                >
+                                    <div className="w-full bg-white rounded-3xl overflow-hidden">
+                                        <Plot
+                                            data={topEmotionProportionsByStyle.data}
+                                            layout={{
+                                                ...topEmotionProportionsByStyle.layout,
+                                                autosize: true,
+                                                margin: { t: 80, b: 100, l: 80, r: 40 },
+                                                template: "plotly_white"
+                                            }}
+                                            style={{ width: "100%", height: "800px" }}
+                                            useResizeHandler={true}
+                                            config={{ responsive: true, displaylogo: false }}
+                                        />
+                                    </div>
+                                </InteractiveAnalysis>
 
-                        {/* 11. Top Words by Emotion */}
-                        <InteractiveAnalysis
-                            id="top-words"
-                            title="Lexical Patterns by Emotion"
-                            subtitle="Most significant keywords mentioned when expressing specific emotions."
-                            icon={MessageSquare}
-                            observation="The word frequency analysis shows that each emotion category tends to have its own characteristic vocabulary. These differences suggest that utterances provide useful linguistic cues that may help distinguish emotional labels in the dataset."
-                            pythonCode={`import re
+                                {/* 11. Top Words by Emotion */}
+                                <InteractiveAnalysis
+                                    id="top-words"
+                                    title="Lexical Patterns by Emotion"
+                                    subtitle="Most significant keywords mentioned when expressing specific emotions."
+                                    icon={MessageSquare}
+                                    observation="The word frequency analysis shows that each emotion category tends to have its own characteristic vocabulary. These differences suggest that utterances provide useful linguistic cues that may help distinguish emotional labels in the dataset."
+                                    pythonCode={`import re
 import pandas as pd
 from collections import Counter
 import plotly.express as px
@@ -936,146 +964,150 @@ fig = px.bar(top_words_df, x='word', y='count', color='emotion',
              title='Top 10 Most Frequent Words by Emotion')
 fig.update_layout(height=1000, showlegend=false, template='plotly_white')
 fig.show()`}
-                        >
-                            <div className="flex flex-col gap-8">
-                                {/* Emotion Selector */}
-                                <div className="flex flex-wrap gap-2 bg-surface-container-low p-1.5 rounded-2xl w-full max-w-4xl border border-outline-variant/10">
-                                    {emotionList.map((emotion) => {
-                                        const isActive = selectedEmotionWord === emotion;
-                                        return (
-                                            <button
-                                                key={emotion}
-                                                onClick={() => setSelectedEmotionWord(emotion)}
-                                                className={`
-                                                    px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer
-                                                    ${isActive 
-                                                        ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' 
-                                                        : 'hover:bg-surface-container-high text-on-surface/40 hover:text-on-surface'}
-                                                `}
+                                >
+                                    <div className="flex flex-col gap-8">
+                                        {/* Emotion Selector */}
+                                        <div className="flex flex-wrap gap-2 bg-surface-container-low p-1.5 rounded-2xl w-full max-w-4xl border border-outline-variant/10">
+                                            {emotionList.map((emotion) => {
+                                                const isActive = selectedEmotionWord === emotion;
+                                                return (
+                                                    <button
+                                                        key={emotion}
+                                                        onClick={() => setSelectedEmotionWord(emotion)}
+                                                        className={`
+                                                            px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer
+                                                            ${isActive 
+                                                                ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' 
+                                                                : 'hover:bg-surface-container-high text-on-surface/40 hover:text-on-surface'}
+                                                        `}
+                                                    >
+                                                        {emotion}
+                                                    </button>
+                                                );
+                                            })}
+                                        </div>
+
+                                        {/* Active Emotion Chart */}
+                                        <AnimatePresence mode="wait">
+                                            <motion.div
+                                                key={selectedEmotionWord}
+                                                initial={{ opacity: 0, x: 20 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -20 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="bg-white rounded-3xl border border-outline-variant/10 overflow-hidden shadow-sm"
                                             >
-                                                {emotion}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-
-                                {/* Active Emotion Chart */}
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={selectedEmotionWord}
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -20 }}
-                                        transition={{ duration: 0.3 }}
-                                        className="bg-white rounded-3xl border border-outline-variant/10 overflow-hidden shadow-sm"
-                                    >
-                                        <Plot
-                                            data={topWordsByEmotion.data
-                                                .filter(trace => trace.name === selectedEmotionWord)
-                                                .map(trace => ({
-                                                    ...trace,
-                                                    xaxis: "x",
-                                                    yaxis: "y"
-                                                }))}
-                                            layout={{
-                                                title: {
-                                                    text: `Top 10 Frequent Words: ${selectedEmotionWord.toUpperCase()}`,
-                                                    font: { size: 16, color: '#00685f', weight: 'bold' }
-                                                },
-                                                xaxis: { title: "Word", tickangle: 0 },
-                                                yaxis: { title: "Frequency" },
-                                                autosize: true,
-                                                bargap: 0.15,
-                                                margin: { t: 80, b: 60, l: 80, r: 40 },
-                                                template: "plotly_white"
-                                            }}
-                                            style={{ width: "100%", height: "600px" }}
-                                            useResizeHandler={true}
-                                            config={{ responsive: true, displaylogo: false }}
-                                        />
-                                    </motion.div>
-                                </AnimatePresence>
-                            </div>
-                        </InteractiveAnalysis>
-
-                        {/* Final Insight Summary Section */}
-                        <div className="mt-24 bg-[#00685f]/5 rounded-[3rem] p-12 lg:p-16 border border-[#00685f]/10 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-12 opacity-5 scale-150 rotate-12 transition-transform group-hover:rotate-0 duration-1000">
-                                <Sparkles size={200} className="text-primary" />
-                            </div>
-                            
-                            <div className="relative z-10">
-                                <div className="flex items-center gap-3 text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-8">
-                                    <div className="w-10 h-px bg-primary/40" />
-                                    Strategic Intelligence
-                                </div>
-                                <h2 className="text-4xl font-extrabold tracking-tight text-on-surface mb-12">
-                                    Key Findings & <span className="text-primary underline decoration-primary/20 underline-offset-8 italic">Potential Issues</span>
-                                </h2>
-
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                    <div className="space-y-8">
-                                        <div className="flex gap-6">
-                                            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                                                <AlertTriangle size={20} className="text-amber-500" />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-md font-bold text-on-surface mb-2">Emotion Label Imbalance</h4>
-                                                <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
-                                                    Significant imbalance detected. <strong>'sadness'</strong> is one of the most frequent labels, while others like <strong>'amusement'</strong> represent a very small fraction. AI models will require class weighting or oversampling.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="flex gap-6">
-                                            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                                                <Palette size={20} className="text-primary" />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-md font-bold text-on-surface mb-2">Art Style Emotional Signatures</h4>
-                                                <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
-                                                    Each style possesses a distinct emotional signature (e.g., 'sadness' in Impressionism, 'disgust' in Abstract Expressionism). These profiles are valuable for nuanced affective modeling.
-                                                </p>
-                                            </div>
-                                        </div>
+                                                <Plot
+                                                    data={topWordsByEmotion.data
+                                                        .filter(trace => trace.name === selectedEmotionWord)
+                                                        .map(trace => ({
+                                                            ...trace,
+                                                            xaxis: "x",
+                                                            yaxis: "y"
+                                                        }))}
+                                                    layout={{
+                                                        title: {
+                                                            text: `Top 10 Frequent Words: ${selectedEmotionWord.toUpperCase()}`,
+                                                            font: { size: 16, color: '#00685f', weight: 'bold' }
+                                                        },
+                                                        xaxis: { title: "Word", tickangle: 0 },
+                                                        yaxis: { title: "Frequency" },
+                                                        autosize: true,
+                                                        bargap: 0.15,
+                                                        margin: { t: 80, b: 60, l: 80, r: 40 },
+                                                        template: "plotly_white"
+                                                    }}
+                                                    style={{ width: "100%", height: "600px" }}
+                                                    useResizeHandler={true}
+                                                    config={{ responsive: true, displaylogo: false }}
+                                                />
+                                            </motion.div>
+                                        </AnimatePresence>
                                     </div>
+                                </InteractiveAnalysis>
 
-                                    <div className="space-y-8">
-                                        <div className="flex gap-6">
-                                            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                                                <Maximize size={20} className="text-secondary" />
-                                            </div>
-                                            <div>
-                                                <h4 className="text-md font-bold text-on-surface mb-2">Visual Diversity</h4>
-                                                <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
-                                                    Image resolutions vary significantly from small thumbnails to high-resolution. Preprocessing must maintain visual details and consistent aspect ratios.
-                                                </p>
-                                            </div>
+                                {/* Final Insight Summary Section */}
+                                <div className="mt-24 bg-[#00685f]/5 rounded-[3rem] p-12 lg:p-16 border border-[#00685f]/10 relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-12 opacity-5 scale-150 rotate-12 transition-transform group-hover:rotate-0 duration-1000">
+                                        <Sparkles size={200} className="text-primary" />
+                                    </div>
+                                    
+                                    <div className="relative z-10">
+                                        <div className="flex items-center gap-3 text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-8">
+                                            <div className="w-10 h-px bg-primary/40" />
+                                            Strategic Intelligence
                                         </div>
-                                        <div className="flex gap-6">
-                                            <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
-                                                <CheckCircle2 size={20} className="text-emerald-600" />
+                                        <h2 className="text-4xl font-extrabold tracking-tight text-on-surface mb-12">
+                                            Key Findings & <span className="text-primary underline decoration-primary/20 underline-offset-8 italic">Potential Issues</span>
+                                        </h2>
+
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                            <div className="space-y-8">
+                                                <div className="flex gap-6">
+                                                    <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
+                                                        <AlertTriangle size={20} className="text-amber-500" />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-md font-bold text-on-surface mb-2">Emotion Label Imbalance</h4>
+                                                        <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
+                                                            Significant imbalance detected. <strong>'sadness'</strong> is one of the most frequent labels, while others like <strong>'amusement'</strong> represent a very small fraction. AI models will require class weighting or oversampling.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-6">
+                                                    <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
+                                                        <Palette size={20} className="text-primary" />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-md font-bold text-on-surface mb-2">Art Style Emotional Signatures</h4>
+                                                        <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
+                                                            Each style possesses a distinct emotional signature (e.g., 'sadness' in Impressionism, 'disgust' in Abstract Expressionism). These profiles are valuable for nuanced affective modeling.
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <h4 className="text-md font-bold text-on-surface mb-2">Data Quality</h4>
-                                                <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
-                                                    The dataset is well-curated with zero missing values and zero duplicate records, providing a robust and clean foundation for multimodal training.
-                                                </p>
+
+                                            <div className="space-y-8">
+                                                <div className="flex gap-6">
+                                                    <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
+                                                        <Maximize size={20} className="text-secondary" />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-md font-bold text-on-surface mb-2">Visual Diversity</h4>
+                                                        <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
+                                                            Image resolutions vary significantly from small thumbnails to high-resolution. Preprocessing must maintain visual details and consistent aspect ratios.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-6">
+                                                    <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center shrink-0">
+                                                        <CheckCircle2 size={20} className="text-emerald-600" />
+                                                    </div>
+                                                    <div>
+                                                        <h4 className="text-md font-bold text-on-surface mb-2">Data Quality</h4>
+                                                        <p className="text-sm text-on-surface-variant leading-relaxed opacity-70">
+                                                            The dataset is well-curated with zero missing values and zero duplicate records, providing a robust and clean foundation for multimodal training.
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div className="mt-20 flex justify-center">
-                            <div className="flex items-center gap-4 bg-surface-container-low/50 p-6 rounded-2xl border border-outline-variant/10 text-[11px] text-on-surface-variant italic leading-relaxed max-w-2xl text-center">
-                                <Sparkles size={16} className="text-primary shrink-0" />
-                                <span>
-                                    Strategic assessment complete. These findings form the baseline for the ArtEmis deep learning architecture.
-                                </span>
+                                <div className="mt-20 flex justify-center">
+                                    <div className="flex items-center gap-4 bg-surface-container-low/50 p-6 rounded-2xl border border-outline-variant/10 text-[11px] text-on-surface-variant italic leading-relaxed max-w-2xl text-center">
+                                        <Sparkles size={16} className="text-primary shrink-0" />
+                                        <span>
+                                            Strategic assessment complete. These findings form the baseline for the ArtEmis deep learning architecture.
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </>
+                    ) : (
+                        <MultimodalML />
+                    )}
                 </div>
             </main>
         </div>

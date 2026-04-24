@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { User, FileText, PlayCircle, Code, Table, Languages, Image as ImageIcon, Layers, MousePointer2 } from "lucide-react";
+import { User, FileText, PlayCircle, Code, Table, Languages, Image as ImageIcon, Layers, MousePointer2, Brain } from "lucide-react";
 import aviation from '../assets/images/aviation/aviation.png';
 import textPreview from '../assets/images/image/text_preview.jpg';
 import imagePreview from '../assets/images/image/image_preview.jpg';
@@ -158,8 +158,8 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Assignment Focus Section */}
-      <section className="mb-24 bg-surface-container-low p-12 overflow-hidden relative">
+      {/* Assignment 1 Focus Section */}
+      <section className="mb-12 bg-surface-container-low p-12 overflow-hidden relative">
         <div className="relative z-10 max-w-2xl">
           <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-6 tracking-tight">Assignment 1 – Exploratory Data Analysis (EDA)</h2>
           <p className="text-lg text-on-surface-variant mb-10 leading-relaxed">
@@ -199,6 +199,52 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
             alt="Abstract data waves"
             className="w-full h-full object-cover"
             src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      </section>
+
+      {/* Assignment 2 Focus Section */}
+      <section className="mb-24 bg-surface-container-low p-12 overflow-hidden relative border-t border-outline-variant/10">
+        <div className="relative z-10 max-w-2xl">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-[10px] font-black uppercase tracking-widest border border-primary/20">Current Stage</span>
+          </div>
+          <h2 className="text-4xl font-headline font-extrabold text-on-surface mb-6 tracking-tight">Assignment 2 – Machine Learning for Data Analysis</h2>
+          <p className="text-lg text-on-surface-variant mb-10 leading-relaxed">
+            Implementing advanced machine learning workflows across multiple modalities. We leverage Transfer Learning for Image classification, NLP architectures for Text, and ensemble methods for Tabular data to build predictive intelligence.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <button
+              onClick={() => onNavigate?.('datasets')}
+              className="flex items-center gap-2 bg-on-surface text-white px-8 py-3 rounded font-bold hover:bg-primary transition-all cursor-pointer border-none shadow-lg shadow-on-surface/10"
+            >
+              <Brain size={20} />
+              Explore ML Analytics
+            </button>
+            <button
+              className="flex items-center gap-2 bg-white text-on-surface px-8 py-3 rounded font-bold border border-on-surface-variant/10 opacity-50 cursor-not-allowed"
+              disabled
+            >
+              <FileText size={20} />
+              Report (PDF)
+            </button>
+            <a
+              href="https://github.com/nguyendangcole/assignment-P4AI.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white text-on-surface px-8 py-3 rounded font-bold hover:bg-surface-container-high transition-all cursor-pointer no-underline border border-on-surface-variant/10"
+            >
+              <Code size={20} />
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+        <div className="absolute right-[-10%] top-[-20%] w-[50%] h-[150%] opacity-10 pointer-events-none -rotate-12">
+          <img
+            alt="Neural network visualization"
+            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
             referrerPolicy="no-referrer"
           />
         </div>

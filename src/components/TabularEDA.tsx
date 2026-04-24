@@ -50,7 +50,7 @@ import _outlier_detection from "../assets/data/tabularEDA/outlier_detection.json
 import _target_vs from "../assets/data/tabularEDA/target_vs.json";
 import _weather_data from "../assets/data/tabularEDA/weather_data.json";
 import _timeseries from "../assets/data/tabularEDA/timeseries.json";
-import TabularML from "./TabularML";
+import TabularPipeline from "./TabularPipeline";
 
 const missing_values = _missing_values as any;
 const numerical_distribution = _numerical_distribution as any;
@@ -298,20 +298,28 @@ export default function TabularEDA({ onBack, initialMode = "eda" }: { onBack: ()
         return () => observer.disconnect();
     }, []);
 
-    const tocItems = [
+    const edaTocItems = [
         { id: "overview", label: "Overview" },
-        { id: "methodology", label: "Methodology" },
-        { id: "features", label: "Dataset Overview" },
-        { id: "quality", label: "Missing Values" },
-        { id: "distribution", label: "Numerical Distributions" },
+        { id: "missing", label: "Missing Data" },
+        { id: "numerical", label: "Numerical Analysis" },
         { id: "outliers", label: "Outlier Detection" },
-        { id: "categorical", label: "Categorical Distributions" },
-        { id: "targetLikelihood", label: "Target Relationships" },
-        { id: "targetRel", label: "Correlation Analysis" },
-        { id: "time-series-seasonality", label: "Seasonality Analysis"},
-        { id: "sampling", label: "Sample Data" },
-        { id: "findings", label: "Key Insight" },
+        { id: "categorical", label: "Categorical Distribution" },
+        { id: "targetLikelihood", label: "Target vs Categorical" },
+        { id: "targetRel", label: "Correlation Matrix" },
+        { id: "time-series-seasonality", label: "Seasonality Analysis" },
+        { id: "sampling", label: "Isolated Archives" },
+        { id: "findings", label: "Report Summary" },
     ];
+
+    const mlTocItems = [
+        { id: "overview", label: "Overview" },
+        { id: "architecture", label: "Pipeline Architecture" },
+        { id: "traditional", label: "Traditional ML" },
+        { id: "tuning", label: "Fine-tuning Performance" },
+        { id: "simulation", label: "Hyperparameter Simulation" },
+    ];
+
+    const tocItems = activeMode === "eda" ? edaTocItems : mlTocItems;
 
     const rollDice = () => {
         setIsRolling(true);
@@ -439,108 +447,107 @@ export default function TabularEDA({ onBack, initialMode = "eda" }: { onBack: ()
                         </button>
                     </div>
 
-                    {/* Academic Hero Section */}
-                    <section className="relative py-28 overflow-hidden bg-white border border-outline-variant/5 rounded-[3rem] shadow-sm mb-12" id="overview">
-                        <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-bl from-primary/[0.03] to-transparent -z-10" />
-                        <div className="max-w-[1240px] mx-auto px-10">
-                            <div className="flex flex-col lg:flex-row items-center gap-20">
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="flex-1 text-center lg:text-left"
-                                >
-                                    <div className="flex items-center justify-center lg:justify-start gap-3 text-primary font-bold tracking-widest text-[10px] uppercase mb-8">
-                                        <span className="w-8 h-px bg-primary/40"></span>
-                                        Meteorological Dataset Analysis
-                                    </div>
-                                    <h1 className="text-6xl md:text-7xl font-extrabold mb-8 tracking-tighter leading-[1] text-on-surface">
-                                        Rain in Australia <br />
-                                        <span className="text-primary italic font-serif opacity-90">A Descriptive Report.</span>
-                                    </h1>
-                                    <p className="text-lg text-on-surface-variant leading-relaxed max-w-2xl font-medium mb-12 opacity-80">
-                                        Detailed exploratory analysis of 10 years of daily weather observations from many Australian locations, investigating the predictive markers of rainfall events.
-                                    </p>
-                                    <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                                        <div className="flex items-center gap-2 px-5 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 text-[10px] font-black uppercase tracking-widest">
-                                            <Database size={14} className="text-primary" />
-                                            145.5k records
-                                        </div>
-                                        <div className="flex items-center gap-2 px-5 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 text-[10px] font-black uppercase tracking-widest text-emerald-600">
-                                            <CheckCircle2 size={14} />
-                                            Verified Integrity
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-                                <motion.div
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    className="w-full lg:w-[420px] space-y-8"
-                                >
-                                    <div className="bg-white rounded-[2.5rem] p-10 border border-outline-variant/10 shadow-2xl shadow-on-surface/5 relative">
-                                        <div className="space-y-8">
-                                            <div className="flex justify-between items-center pb-6 border-b border-outline-variant/10">
-                                                <span className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Study Metadata</span>
-                                                <span className="px-3 py-1 bg-surface-container-high rounded-full text-[9px] font-bold uppercase tracking-tight">V1.0.4</span>
-                                            </div>
-                                            <div className="space-y-5">
-                                                {[
-                                                    { label: "Temporal Range", val: "2007 - 2017" },
-                                                    { label: "Target Label", val: "RainTomorrow" },
-                                                    { label: "Class Weight", val: "78% No / 22% Yes" },
-                                                ].map((item, i) => (
-                                                    <div key={i} className="flex justify-between items-center">
-                                                        <span className="text-xs font-semibold text-on-surface-variant opacity-60 uppercase tracking-tight font-headline">{item.label}</span>
-                                                        <span className="text-on-surface font-black text-sm">{item.val}</span>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            <a
-                                                href="https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package?select=weatherAUS.csv"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-full mt-10 py-5 bg-on-surface text-white rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary transition-all shadow-xl shadow-on-surface/10 flex items-center justify-center gap-3 cursor-pointer no-underline mb-10"
-                                            >
-                                                <BookOpen size={18} />
-                                                Dataset on Kaggle
-                                            </a>
-
-                                            <div className="pt-8 border-t border-outline-variant/10">
-                                                <div className="flex items-center gap-3 mb-6">
-                                                    <Users size={16} className="text-primary" />
-                                                    <span className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Project Contributors</span>
-                                                </div>
-                                                <div className="flex flex-wrap gap-3">
-                                                    {[
-                                                        "Lê Minh Hào"
-                                                       
-                                                    ].map((member, i) => (
-                                                        <div key={i} className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-xl border border-outline-variant/10 w-fit">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-                                                            <span className="text-[10px] font-bold text-on-surface whitespace-nowrap">{member}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <ImagePlaceholder label="Meteorological Scene" src={heroImage} className="min-h-[280px]" />
-                                </motion.div>
-                            </div>
-
-                            {/* Core KPIs */}
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-24">
-                                <StatCard label="Total Samples" value="145,460" icon={Database} />
-                                <StatCard label="Weather Stations" value="49" icon={Layout} />
-                                <StatCard label="Feature Count" value="23" icon={Columns} />
-                                <StatCard label="Majority Base" value="77.9%" variant="primary" icon={Target} />
-                            </div>
-                        </div>
-                    </section>
-                    
-
                     {activeMode === "eda" ? (
                         <>
+                            {/* Academic Hero Section */}
+                            <section className="relative py-28 overflow-hidden bg-white border border-outline-variant/5 rounded-[3rem] shadow-sm mb-12" id="overview">
+                                <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-bl from-primary/[0.03] to-transparent -z-10" />
+                                <div className="max-w-[1240px] mx-auto px-10">
+                                    <div className="flex flex-col lg:flex-row items-center gap-20">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="flex-1 text-center lg:text-left"
+                                        >
+                                            <div className="flex items-center justify-center lg:justify-start gap-3 text-primary font-bold tracking-widest text-[10px] uppercase mb-8">
+                                                <span className="w-8 h-px bg-primary/40"></span>
+                                                Descriptive Data Analysis
+                                            </div>
+                                            <h1 className="text-6xl md:text-7xl font-extrabold mb-8 tracking-tighter leading-[1] text-on-surface">
+                                                Rain in Australia <br />
+                                                <span className="text-primary italic font-serif opacity-90">A Descriptive Report.</span>
+                                            </h1>
+                                            <p className="text-lg text-on-surface-variant leading-relaxed max-w-2xl font-medium mb-12 opacity-80">
+                                                Exploration of a decade of daily weather observations from across Australia to predict the likelihood of rain the following day.
+                                            </p>
+                                            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                                                <div className="flex items-center gap-2 px-5 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 text-[10px] font-black uppercase tracking-widest">
+                                                    <Database size={14} className="text-primary" />
+                                                    145,460 Records
+                                                </div>
+                                                <div className="flex items-center gap-2 px-5 py-2.5 bg-surface-container-low rounded-xl border border-outline-variant/10 text-[10px] font-black uppercase tracking-widest text-emerald-600">
+                                                    <CheckCircle2 size={14} />
+                                                    Verified Integrity
+                                                </div>
+                                            </div>
+                                        </motion.div>
+
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            className="w-full lg:w-[420px] space-y-8"
+                                        >
+                                            <div className="bg-white rounded-[2.5rem] p-10 border border-outline-variant/10 shadow-2xl shadow-on-surface/5 relative">
+                                                <div className="space-y-8">
+                                                    <div className="flex justify-between items-center pb-6 border-b border-outline-variant/10">
+                                                        <span className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Study Metadata</span>
+                                                        <span className="px-3 py-1 bg-surface-container-high rounded-full text-[9px] font-bold uppercase tracking-tight">V1.0.4</span>
+                                                    </div>
+                                                    <div className="space-y-5">
+                                                        {[
+                                                            { label: "Temporal Range", val: "2007 - 2017" },
+                                                            { label: "Target Label", val: "RainTomorrow" },
+                                                            { label: "Observations", val: "145,460" },
+                                                        ].map((item, i) => (
+                                                            <div key={i} className="flex justify-between items-center">
+                                                                <span className="text-xs font-semibold text-on-surface-variant opacity-60 uppercase tracking-tight font-headline">{item.label}</span>
+                                                                <span className="text-on-surface font-black text-sm">{item.val}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                    <a
+                                                        href="https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package?select=weatherAUS.csv"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="w-full mt-10 py-5 bg-on-surface text-white rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary transition-all shadow-xl shadow-on-surface/10 flex items-center justify-center gap-3 cursor-pointer no-underline mb-10"
+                                                    >
+                                                        <BookOpen size={18} />
+                                                        Dataset on Kaggle
+                                                    </a>
+
+                                                    <div className="pt-8 border-t border-outline-variant/10">
+                                                        <div className="flex items-center gap-3 mb-6">
+                                                            <Users size={16} className="text-primary" />
+                                                            <span className="text-[10px] font-black text-on-surface-variant uppercase tracking-widest">Project Contributors</span>
+                                                        </div>
+                                                        <div className="flex flex-wrap gap-3">
+                                                            {[
+                                                                "Lê Minh Hào"
+
+                                                            ].map((member, i) => (
+                                                                <div key={i} className="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-xl border border-outline-variant/10 w-fit">
+                                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                                                                    <span className="text-[10px] font-bold text-on-surface whitespace-nowrap">{member}</span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ImagePlaceholder label="Meteorological Scene" src={heroImage} className="min-h-[280px]" />
+                                        </motion.div>
+                                    </div>
+
+                                    {/* Core KPIs */}
+                                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-24">
+                                        <StatCard label="Total Samples" value="145,460" icon={Database} />
+                                        <StatCard label="Weather Stations" value="49" icon={Layout} />
+                                        <StatCard label="Feature Count" value="23" icon={Columns} />
+                                        <StatCard label="Majority Base" value="77.9%" variant="primary" icon={Target} />
+                                    </div>
+                                </div>
+                            </section>
+                            
                             <div className="max-w-[1240px] mx-auto">
                                 {/* Dataset Profile & Ethics */}
                         <section className="py-20 mb-8">
@@ -1114,7 +1121,7 @@ export default function TabularEDA({ onBack, initialMode = "eda" }: { onBack: ()
 
                         </>
                     ) : (
-                        <TabularML />
+                        <TabularPipeline onBack={onBack} isEmbedded={true} />
                     )}
                 </div>
             </main>

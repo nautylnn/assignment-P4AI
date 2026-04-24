@@ -835,32 +835,31 @@ const InteractiveAnalysis = ({ id, title, subtitle, icon: Icon, pythonCode, plot
     );
 };
 
-export default function TabularPipeline({ onBack }: { onBack: () => void }) {
-    // Active Model Toggle
-    const [activeModel, setActiveModel] = useState("DT"); // 'DT' or 'XGB'
-
-    // Decision Tree States
+export default function TabularPipeline({ onBack, isEmbedded = false }: { onBack: () => void, isEmbedded?: boolean }) {
+    const [activeNav, setActiveNav] = useState("overview");
+    const [activeModel, setActiveModel] = useState("DT");
+    
+    // DT State
     const [criterion, setCriterion] = useState("gini");
     const [maxDepth, setMaxDepth] = useState("None");
-    const [minSplit, setMinSplit] = useState("2");
     const [minLeaf, setMinLeaf] = useState("1");
+    const [minSplit, setMinSplit] = useState("2");
 
-    // XGBoost States
-    const [learningRate, setLearningRate] = useState("0.01");
-    const [xgbMaxDepth, setXgbMaxDepth] = useState("3");
-    const [nEstimators, setNEstimators] = useState("100");
-    const [subsample, setSubsample] = useState("0.8");
-
-    // Random Forest States
+    // RF State
     const [rfNEstimators, setRfNEstimators] = useState("100");
-    const [rfMaxDepth, setRfMaxDepth] = useState("20");
+    const [rfMaxDepth, setRfMaxDepth] = useState("None");
     const [rfMinSplit, setRfMinSplit] = useState("2");
     const [rfMinLeaf, setRfMinLeaf] = useState("1");
 
-    const [activeNav, setActiveNav] = useState("overview");
+    // XGB State
+    const [learningRate, setLearningRate] = useState("0.05");
+    const [nEstimators, setNEstimators] = useState("100");
+    const [xgbMaxDepth, setXgbMaxDepth] = useState("3");
+    const [subsample, setSubsample] = useState("0.8");
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        // Reset scroll position to top whenever component mounts
+        if (!isEmbedded) window.scrollTo(0, 0);
 
         const observerOptions = {
             root: null,
@@ -881,18 +880,18 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
         sections.forEach(section => observer.observe(section));
 
         return () => observer.disconnect();
-    }, []);
+    }, [isEmbedded]);
 
     const tocItems = [
         { id: "overview", label: "Overview" },
         { id: "architecture", label: "Pipeline Architecture" },
-        { id: "performance", label: "Traditional ML" },
-        { id: "hyperparameter-configs", label: "Fine-tuning Performance" },
-        { id: "builder", label: "Hyperparameter Simulation" },
+        { id: "traditional", label: "Traditional ML" },
+        { id: "tuning", label: "Fine-tuning Performance" },
+        { id: "simulation", label: "Hyperparameter Simulation" },
     ];
 
     return (
-        <div className="min-h-screen relative bg-[#f8fafb] selection:bg-primary/20 text-on-surface font-sans antialiased">
+        <div className={`${isEmbedded ? "" : "min-h-screen"} relative bg-[#f8fafb] selection:bg-primary/20 text-on-surface font-sans antialiased`}>
             <style>{`
         .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f3f5; border-radius: 10px; }
@@ -902,46 +901,50 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
       `}</style>
 
             {/* Back Button */}
-            <div className="fixed top-24 left-8 z-50">
-                <button
-                    onClick={onBack}
-                    className="bg-white p-4 rounded-2xl border border-outline-variant/10 shadow-2xl hover:bg-primary hover:text-white transition-all group cursor-pointer active:scale-90"
-                >
-                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-                </button>
-            </div>
+            {!isEmbedded && (
+                <div className="fixed top-24 left-8 z-50">
+                    <button
+                        onClick={onBack}
+                        className="bg-white p-4 rounded-2xl border border-outline-variant/10 shadow-2xl hover:bg-primary hover:text-white transition-all group cursor-pointer active:scale-90"
+                    >
+                        <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
+                    </button>
+                </div>
+            )}
 
 
-            <main className="pt-8 flex max-w-[1440px] mx-auto px-4 lg:px-8">
+            <main className={`${isEmbedded ? "" : "pt-8"} flex max-w-[1440px] mx-auto px-4 lg:px-8`}>
                 {/* Sticky Table of Contents Sidebar */}
-                <aside className="hidden xl:block w-72 sticky top-32 self-start pr-12 h-[calc(100vh-160px)] overflow-y-auto no-scrollbar">
-                    <div className="space-y-12">
-                        <div>
-                            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant opacity-40 mb-10 pl-6">Analysis Index</h3>
-                            <div className="relative border-l-2 border-outline-variant/10 ml-6 space-y-1">
-                                {tocItems.map((item) => {
-                                    const isActive = activeNav === item.id;
-                                    return (
-                                        <a
-                                            key={item.id}
-                                            href={`#${item.id}`}
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
-                                            }}
-                                            className={`block py-2.5 px-6 -ml-[2px] border-l-2 text-[11px] font-bold tracking-tight transition-all duration-300 ${isActive
-                                                ? "text-primary border-primary bg-primary/5"
-                                                : "text-on-surface-variant/40 border-transparent hover:text-on-surface-variant/70 hover:border-outline-variant/30"
-                                                }`}
-                                        >
-                                            {item.label}
-                                        </a>
-                                    );
-                                })}
+                {!isEmbedded && (
+                    <aside className="hidden xl:block w-72 sticky top-32 self-start pr-12 h-[calc(100vh-160px)] overflow-y-auto no-scrollbar">
+                        <div className="space-y-12">
+                            <div>
+                                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant opacity-40 mb-10 pl-6">Analysis Index</h3>
+                                <div className="relative border-l-2 border-outline-variant/10 ml-6 space-y-1">
+                                    {tocItems.map((item) => {
+                                        const isActive = activeNav === item.id;
+                                        return (
+                                            <a
+                                                key={item.id}
+                                                href={`#${item.id}`}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                                                }}
+                                                className={`block py-2.5 px-6 -ml-[2px] border-l-2 text-[11px] font-bold tracking-tight transition-all duration-300 ${isActive
+                                                    ? "text-primary border-primary bg-primary/5"
+                                                    : "text-on-surface-variant/40 border-transparent hover:text-on-surface-variant/70 hover:border-outline-variant/30"
+                                                    }`}
+                                            >
+                                                {item.label}
+                                            </a>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </aside>
+                    </aside>
+                )}
 
                 <div className="flex-1 min-w-0">
                     {/* Academic Hero Section */}
@@ -1372,7 +1375,7 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
                         </InteractiveAnalysis>
 
                         <InteractiveAnalysis
-                            id="performance"
+                            id="traditional"
                             title="Traditional ML Performers"
                             subtitle="Comparing the some ML config pipelines across Accuracy, Training Time, and Inference Time"
                             icon={Database}
@@ -1511,7 +1514,7 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
                             </div>
                         </InteractiveAnalysis>
                         <InteractiveAnalysis
-                            id="hyperparameter-configs"
+                            id="tuning"
                             title="Hyperparameter Optimization Search"
                             subtitle="Grid parameters and top-performing configurations for tree-based models"
                             icon={Sliders}
@@ -1718,7 +1721,7 @@ export default function TabularPipeline({ onBack }: { onBack: () => void }) {
                                 </div>
                             </div>
                         </InteractiveAnalysis>
-                        <section className="py-12 border-t border-outline-variant/10" id="builder">
+                        <section className="py-12 border-t border-outline-variant/10" id="simulation">
                             <div className="bg-on-surface rounded-[4rem] p-12 lg:p-20 text-white shadow-2xl relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl pointer-events-none" />
                                 

@@ -105,13 +105,6 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
                 <ExternalLink size={14} />
                 Colab
               </a>
-              <button
-                onClick={() => onNavigate?.('tabular-pipeline')}
-                className="flex-1 py-2.5 academic-gradient text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg transition-all cursor-pointer"
-              >
-                <BarChart3 size={14} />
-                ML
-              </button>
             </div>
 
           </motion.div>
@@ -179,6 +172,17 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
               </button>
             </div>
           </div>
+            <div className="flex gap-3 mt-4">
+              <a 
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2.5 bg-surface-container text-on-surface text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all no-underline cursor-pointer"
+              >
+                <ExternalLink size={14} />
+                Colab
+              </a>
+            </div>
 
           </motion.div>
 
@@ -245,6 +249,17 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
               </button>
             </div>
           </div>
+            <div className="flex gap-3 mt-4">
+              <a 
+                href="https://colab.research.google.com/drive/1gJlZcRzuRz0I-2ZRfJQZ4I0dlNgbSzKl?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2.5 bg-surface-container text-on-surface text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all no-underline cursor-pointer"
+              >
+                <ExternalLink size={14} />
+                Colab
+              </a>
+            </div>
 
           </motion.div>
 
@@ -311,6 +326,17 @@ export default function DatasetsPage({ onNavigate }: DatasetsPageProps) {
               </button>
             </div>
           </div>
+            <div className="flex gap-3 mt-4">
+              <a 
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2.5 bg-surface-container text-on-surface text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all no-underline cursor-pointer"
+              >
+                <ExternalLink size={14} />
+                Colab
+              </a>
+            </div>
 
           </motion.div>
         </div>

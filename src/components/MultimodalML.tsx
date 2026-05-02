@@ -307,24 +307,47 @@ export default function MultimodalML() {
                 </div>
             </section>
 
-            {/* Conclusion Insight */}
-            <section className="bg-on-surface rounded-[2.5rem] p-12 text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
-                <div className="relative z-10 max-w-2xl">
-                    <h3 className="text-3xl font-bold tracking-tight mb-6 flex items-center gap-3">
-                        <CheckCircle2 className="text-primary" /> Final Insights
-                    </h3>
-                    <div className="space-y-6">
-                        <div className="flex gap-4 p-5 bg-white/5 rounded-2xl border border-white/10">
-                            <Info className="text-primary shrink-0" size={20} />
-                            <p className="text-sm leading-relaxed opacity-80 italic">
-                                "Text data overwhelmingly outperforms visual data in emotion prediction. This suggests that human emotional utterances contain much clearer signals than pure visual features in fine art."
+            {/* Academic Analysis & Conclusion */}
+            <section className="bg-on-surface rounded-[3rem] p-12 text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -mr-64 -mt-64"></div>
+                
+                <div className="relative z-10 space-y-12">
+                    <div className="max-w-2xl">
+                        <h3 className="text-3xl font-extrabold tracking-tight mb-4">Experimental Analysis & Synthesis</h3>
+                        <div className="h-1 w-20 bg-primary rounded-full"></div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Key Findings */}
+                        <div className="space-y-4 p-8 bg-white/5 rounded-[2rem] border border-white/10 hover:bg-white/[0.07] transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-6">
+                                <TrendingUp size={20} />
+                            </div>
+                            <h4 className="text-lg font-bold text-white">Comparative Performance</h4>
+                            <p className="text-sm leading-relaxed text-white/60">
+                                Results reveal a distinct performance gap between modalities. Text-based models consistently outperform image-based approaches, with TF-IDF + Linear SVM achieving a peak Macro-F1 of 0.5517. In contrast, even fine-tuned visual models struggle (Macro-F1 0.1423), highlighting the challenge of inferring emotion solely from visual pixels.
                             </p>
                         </div>
-                        <div className="flex gap-4 p-5 bg-white/5 rounded-2xl border border-white/10">
-                            <Zap className="text-amber-400 shrink-0" size={20} />
-                            <p className="text-sm leading-relaxed opacity-80 italic">
-                                "Late Fusion (with optimal weights of 0.6-0.7 for Text and 0.3-0.4 for Image) yields the best results, proving that while text is dominant, visual information still provides valuable nuances that refine the overall prediction accuracy."
+
+                        {/* The Challenge */}
+                        <div className="space-y-4 p-8 bg-white/5 rounded-[2rem] border border-white/10 hover:bg-white/[0.07] transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-6">
+                                <BrainCircuit size={20} />
+                            </div>
+                            <h4 className="text-lg font-bold text-white">Subjective Complexity</h4>
+                            <p className="text-sm leading-relaxed text-white/60">
+                                The moderate performance reflects the inherent subjectivity of emotion. Unlike structured tasks, emotional utterances are context-dependent and ambiguous. Visual content does not directly encode emotions; instead, meaning is inferred through personal and cultural filters, introducing significant noise and label inconsistency.
+                            </p>
+                        </div>
+
+                        {/* Conclusion */}
+                        <div className="space-y-4 p-8 bg-white/5 rounded-[2rem] border border-white/10 hover:bg-white/[0.07] transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-6">
+                                <CheckCircle2 size={20} />
+                            </div>
+                            <h4 className="text-lg font-bold text-white">Strategic Synthesis</h4>
+                            <p className="text-sm leading-relaxed text-white/60">
+                                While multimodal fusion offers incremental gains (Macro-F1 0.5620), text remains the dominant affective signal. These findings suggest that future breakthroughs will require advanced contextual architectures, such as Multimodal Transformers, to better bridge the gap between low-level features and high-level emotional perception.
                             </p>
                         </div>
                     </div>

@@ -46,7 +46,7 @@ The analytical heavy-lifting was performed using Google Colab. You can explore o
 ### 📔 [Google Colab Notebooks Folder](./google%20colab/)
 | Notebook | Description | Link |
 | :--- | :--- | :--- |
-| **ArtEmis** | Systematic exploration of the ArtEmis dataset, focusing on visual semiotics and emotion. | [Open in Colab](https://colab.research.google.com/drive/1nDhyj2OA1ej_C7jlsOyhyNXb4tbvUtmr?usp=sharing) |
+| **ArtEmis** | Systematic exploration of the ArtEmis dataset, focusing on visual semiotics and emotion. | [Open in Colab](https://drive.google.com/file/d/1SauFyRlbIxI9QwYu9cdxvY3N6N6kVUAX/view?usp=sharing) |
 | **Rain in Australia** | Deep dive into tabular weather data for recursive pattern analysis. | [Open in Colab](https://colab.research.google.com/drive/143sQz3NqiTBltcTjpuzkPa0QnDxy1I3j?usp=sharing) |
 | **Global Trending Topics 2026** | Exploratory analysis of multi-language trending topics, covering category distributions and textual statistics. | [Open in Colab](https://colab.research.google.com/drive/1lP7Ei8xEWJ4YAx6FmHwHKQVWxAgIcNDf#scrollTo=3ua3QoTV-9JZ) |
 | **Padang Cuisine (IFood Image Dataset)** | Comprehensive visual analysis of the Padang Food dataset, including class distribution and sample inspections. | [Open in Colab](https://colab.research.google.com/drive/1gJlZcRzuRz0I-2ZRfJQZ4I0dlNgbSzKl?usp=sharing) |
